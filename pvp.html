@@ -12,6 +12,65 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        body {
+            background: #23263a;
+            color: #f3f4f6;
+        }
+        .main-content {
+            background: #23263a;
+            min-height: 100vh;
+        }
+        .content-section {
+            background: rgba(36, 39, 61, 0.97);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        }
+        .info-card, .stat-card, .feature-card, .command-card, .tip-card, .changelog-item {
+            background: rgba(54, 57, 89, 0.98);
+            color: #f8fafc;
+            border: 1px solid #353869;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        }
+        .info-card h3, .stat-card .stat-number, .feature-card h3, .command-card h3, .tip-card h4, .changelog-item h3 {
+            color: #fff;
+        }
+        .stat-label, .feature-card p, .command-card p, .tip-card ul li, .tip-card p, .changelog-item p, .info-card p {
+            color: #e0e7ef;
+        }
+        .content-section h2, .content-section h3, .tip-card h4 {
+            color: #fff;
+        }
+        a, .card-link {
+            color: #8b5cf6;
+        }
+        .sidebar, .sidebar-nav, .sidebar-logo {
+            background: #1a1c2c;
+        }
+        .nav-link, .nav-section-title, .nav-item, .sidebar-logo, .sidebar-nav {
+            color: #e0e7ef !important;
+        }
+        ul, li, p, span, label, small {
+            color: #e0e7ef !important;
+        }
+        .server-status, .server-status span {
+            color: #e0e7ef !important;
+        }
+        ::placeholder {
+            color: #bfc6e0 !important;
+            opacity: 1;
+        }
+        .command-list code {
+            background: #353869;
+            color: #a5b4fc;
+            border-radius: 0.3em;
+            padding: 0.2em 0.5em;
+            font-size: 1em;
+        }
+        .tip-card ul li::marker {
+            color: #a5b4fc !important;
+        }
         .hero-section {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             padding: 3rem 2rem;
@@ -305,6 +364,68 @@
             to {
                 opacity: 1;
                 transform: translateX(0);
+            }
+        }
+
+        .kit-card, .arena-card, .rank-card {
+            background: rgba(54, 57, 89, 0.98) !important;
+            color: #f8fafc !important;
+            border: 1px solid #353869;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        }
+        .kit-card h3, .arena-card h3, .rank-card h3 {
+            color: #fff !important;
+        }
+        .kit-card p, .arena-card p, .rank-card p, .kit-card ul li, .arena-card ul li, .rank-card ul li {
+            color: #e0e7ef !important;
+        }
+        .kit-icon, .arena-image, .rank-icon {
+            background: #353869 !important;
+            color: #a5b4fc !important;
+        }
+        .accordion-item {
+            background: rgba(54, 57, 89, 0.98) !important;
+            border: 1px solid #353869 !important;
+        }
+        .accordion-item h4 {
+            background: #353869 !important;
+            color: #fff !important;
+        }
+        .accordion-item.active h4 {
+            background: #7c3aed !important;
+            color: #fff !important;
+        }
+        .accordion-content {
+            background: #23263a !important;
+            color: #e0e7ef !important;
+        }
+        .accordion-item.active .accordion-content {
+            color: #e0e7ef !important;
+        }
+        .rule-list li, .rule-list li::before {
+            color: #e0e7ef !important;
+        }
+        .rule-list li::before {
+            color: #a5b4fc !important;
+        }
+        .command-list code {
+            background: #353869 !important;
+            color: #a5b4fc !important;
+        }
+        ul, li, p, span, label, small {
+            color: #e0e7ef !important;
+        }
+        a, .card-link {
+            color: #8b5cf6 !important;
+        }
+        @media (max-width: 768px) {
+            .kit-grid, .arena-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+            .kit-card, .arena-card {
+                padding: 1.2rem !important;
+                margin-bottom: 1.2rem !important;
             }
         }
     </style>

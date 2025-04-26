@@ -38,7 +38,7 @@ Whether you're a seasoned veteran or a new player, our server is designed to pro
 ## <div align="center">🛠️ Troubleshooting & Support</div>
 <div align="center">
 If you encounter any issues:<br>
-<a href="pages/getting-started.html#troubleshooting"><b>Troubleshooting Section</b></a><br>
+<a href="getting-started.html#troubleshooting"><b>Troubleshooting Section</b></a><br>
 Reach out to our support team:<br>
 <a href="https://discord.gg/wk6yJGHkKP">💬 <b>Join Discord Support</b></a> &nbsp;|&nbsp; <a href="mailto:support@fusion-network.xyz">✉️ <b>Email Support</b></a>
 </div>

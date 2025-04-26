@@ -12,14 +12,73 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        body {
+            background: #23263a;
+            color: #f3f4f6;
+        }
+        .main-content {
+            background: #23263a;
+            min-height: 100vh;
+        }
+        .content-section {
+            background: rgba(36, 39, 61, 0.97);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        }
+        .info-card, .stat-card, .feature-card, .command-card, .tip-card, .changelog-item, .crate-card, .arena-card, .rank-card {
+            background: rgba(54, 57, 89, 0.98) !important;
+            color: #f8fafc !important;
+            border: 1px solid #353869;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        }
+        .info-card h3, .stat-card .stat-number, .feature-card h3, .command-card h3, .tip-card h4, .changelog-item h3, .crate-card h3, .arena-card h3, .rank-card h3 {
+            color: #fff !important;
+        }
+        .stat-label, .feature-card p, .command-card p, .tip-card ul li, .tip-card p, .changelog-item p, .info-card p, .crate-card p, .arena-card p, .rank-card p {
+            color: #e0e7ef !important;
+        }
+        .content-section h2, .content-section h3, .tip-card h4 {
+            color: #fff !important;
+        }
+        a, .card-link {
+            color: #8b5cf6 !important;
+        }
+        .sidebar, .sidebar-nav, .sidebar-logo {
+            background: #1a1c2c;
+        }
+        .nav-link, .nav-section-title, .nav-item, .sidebar-logo, .sidebar-nav {
+            color: #e0e7ef !important;
+        }
+        ul, li, p, span, label, small {
+            color: #e0e7ef !important;
+        }
+        .server-status, .server-status span {
+            color: #e0e7ef !important;
+        }
+        ::placeholder {
+            color: #bfc6e0 !important;
+            opacity: 1;
+        }
+        .command-list code {
+            background: #353869 !important;
+            color: #a5b4fc !important;
+            border-radius: 0.3em;
+            padding: 0.2em 0.5em;
+            font-size: 1em;
+        }
+        .tip-card ul li::marker, .crate-card ul li::marker, .arena-card ul li::marker, .rank-card ul li::marker {
+            color: #a5b4fc !important;
+        }
         .hero-section {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
             padding: 3rem 2rem;
             border-radius: 1rem;
             margin-bottom: 2rem;
             position: relative;
             overflow: hidden;
-            color: white;
+            color: #fff !important;
         }
 
         .hero-section::before {
@@ -48,15 +107,14 @@
         .hero-title {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ff6b6b, #4f46e5);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background: none !important;
+            -webkit-text-fill-color: #fff !important;
             animation: fadeInUp 0.6s ease-out;
         }
 
         .hero-description {
             font-size: 1.1rem;
-            color: #a0a0b8;
+            color: #e0e7ef !important;
             margin-bottom: 1.5rem;
             line-height: 1.6;
             animation: fadeInUp 0.8s ease-out;
@@ -71,12 +129,13 @@
         }
 
         .hero-stat {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(54, 57, 89, 0.98) !important;
             padding: 1.25rem;
             border-radius: 0.5rem;
             text-align: center;
             backdrop-filter: blur(10px);
             transition: transform 0.3s ease;
+            color: #f8fafc !important;
         }
 
         .hero-stat:hover {
@@ -86,21 +145,21 @@
         .hero-stat-number {
             font-size: 1.75rem;
             font-weight: 700;
-            color: #4f46e5;
+            color: #a5b4fc !important;
             margin-bottom: 0.5rem;
         }
 
         .hero-stat-label {
-            color: #a0a0b8;
+            color: #e0e7ef !important;
             font-size: 0.9rem;
         }
 
         .info-section {
-            background: white;
+            background: rgba(36, 39, 61, 0.97) !important;
             border-radius: 1rem;
             padding: 2rem;
             margin: 2rem 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
         }
 
         .info-grid {
@@ -111,7 +170,10 @@
         }
 
         .info-card {
-            background: #f9fafb;
+            background: rgba(54, 57, 89, 0.98) !important;
+            color: #f8fafc !important;
+            border: 1px solid #353869;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
             border-radius: 0.75rem;
             padding: 1.5rem;
             transition: all 0.3s ease;
@@ -125,7 +187,8 @@
         .info-icon {
             width: 40px;
             height: 40px;
-            background: #f3f4f6;
+            background: #353869 !important;
+            color: #a5b4fc !important;
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -137,12 +200,12 @@
         .info-title {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #1f2937;
+            color: #fff !important;
             margin-bottom: 0.5rem;
         }
 
         .info-text {
-            color: #6b7280;
+            color: #e0e7ef !important;
             font-size: 0.9rem;
             line-height: 1.5;
         }
@@ -153,9 +216,74 @@
             gap: 2rem;
             margin-top: 2rem;
         }
+        @media (max-width: 900px) {
+            .crate-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.2rem;
+            }
+            .crate-card {
+                padding: 1.2rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .crate-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 0 0.5rem;
+            }
+            .crate-card {
+                padding: 1rem;
+                margin: 0 auto 1rem auto;
+                min-width: 0;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+            .crate-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .crate-icon {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+            .crate-title {
+                font-size: 1.2rem;
+            }
+            .crate-subtitle {
+                font-size: 0.85rem;
+            }
+            .reward-name, .reward-chance {
+                font-size: 0.95rem;
+            }
+            .key-info, .key-price {
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .crate-card {
+                padding: 0.7rem;
+            }
+            .crate-title {
+                font-size: 1rem;
+            }
+            .crate-subtitle {
+                font-size: 0.8rem;
+            }
+            .reward-name, .reward-chance {
+                font-size: 0.9rem;
+            }
+            .key-info, .key-price {
+                font-size: 0.95rem;
+            }
+        }
 
         .crate-card {
-            background: white;
+            background: rgba(54, 57, 89, 0.98) !important;
+            color: #f8fafc !important;
+            border: 1px solid #353869;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
             border-radius: 1rem;
             padding: 2rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -194,7 +322,8 @@
         .crate-icon {
             width: 48px;
             height: 48px;
-            background: #f3f4f6;
+            background: #353869 !important;
+            color: #a5b4fc !important;
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -207,10 +336,11 @@
             margin: 0;
             font-size: 1.5rem;
             font-weight: 600;
+            color: #fff !important;
         }
 
         .crate-subtitle {
-            color: #6b7280;
+            color: #a5b4fc !important;
             font-size: 0.9rem;
             margin-top: 0.25rem;
         }
@@ -219,6 +349,7 @@
             list-style: none;
             padding: 0;
             margin: 1.5rem 0;
+            color: #e0e7ef !important;
         }
 
         .reward-item {
@@ -226,6 +357,7 @@
             align-items: center;
             padding: 0.75rem 0;
             border-bottom: 1px solid #e5e7eb;
+            color: #e0e7ef !important;
         }
 
         .reward-item:last-child {
@@ -235,7 +367,8 @@
         .reward-icon {
             width: 24px;
             height: 24px;
-            background: #f3f4f6;
+            background: #353869 !important;
+            color: #a5b4fc !important;
             border-radius: 6px;
             display: flex;
             align-items: center;
@@ -246,16 +379,17 @@
 
         .reward-details {
             flex: 1;
+            color: #e0e7ef !important;
         }
 
         .reward-name {
             font-weight: 500;
-            color: #1f2937;
+            color: #fff !important;
         }
 
         .reward-chance {
             font-size: 0.875rem;
-            color: #6b7280;
+            color: #e0e7ef !important;
         }
 
         .crate-footer {
@@ -268,11 +402,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            color: #a5b4fc !important;
         }
 
         .key-price {
             font-weight: 600;
-            color: #4f46e5;
+            color: #a5b4fc !important;
         }
 
         .command-card {

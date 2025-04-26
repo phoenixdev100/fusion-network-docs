@@ -12,8 +12,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        body {
+            background: #23263a;
+            color: #f3f4f6;
+        }
+        .main-content {
+            background: #23263a;
+            min-height: 100vh;
+        }
         .hero-section {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+            color: #fff !important;
             padding: 3rem;
             border-radius: 1rem;
             margin-bottom: 2rem;
@@ -40,16 +49,16 @@
 
         .hero-title {
             font-size: 3rem;
-            background: linear-gradient(135deg, #ff6b6b 0%, #4f46e5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background: none !important;
+            -webkit-text-fill-color: #fff !important;
+            color: #fff !important;
             margin-bottom: 1rem;
             animation: fadeInUp 0.6s ease-out;
         }
 
         .hero-description {
             font-size: 1.2rem;
-            color: #a0a0b8;
+            color: #e0e7ef !important;
             margin-bottom: 2rem;
             max-width: 600px;
             animation: fadeInUp 0.8s ease-out;
@@ -64,7 +73,8 @@
         }
 
         .hero-stat {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(54, 57, 89, 0.98) !important;
+            color: #f8fafc !important;
             padding: 1.5rem;
             border-radius: 0.75rem;
             text-align: center;
@@ -79,12 +89,12 @@
         .stat-number {
             font-size: 2rem;
             font-weight: 700;
-            color: #4f46e5;
+            color: #a5b4fc !important;
             margin-bottom: 0.5rem;
         }
 
         .stat-label {
-            color: #a0a0b8;
+            color: #e0e7ef !important;
             font-size: 0.875rem;
         }
 
@@ -96,10 +106,12 @@
         }
 
         .vote-card {
-            background: white;
+            background: rgba(54, 57, 89, 0.98) !important;
+            color: #f8fafc !important;
+            border: 1px solid #353869;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
             border-radius: 1rem;
             padding: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -108,6 +120,8 @@
         .vote-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            background: rgba(54, 57, 89, 0.98) !important;
+            color: #f8fafc !important;
         }
 
         .vote-card::before {
@@ -123,12 +137,12 @@
         .vote-platform {
             font-size: 1.5rem;
             font-weight: 600;
-            color: #1a1a2e;
+            color: #fff !important;
             margin-bottom: 1rem;
         }
 
         .vote-description {
-            color: #6b7280;
+            color: #e0e7ef !important;
             margin-bottom: 1.5rem;
             font-size: 0.875rem;
             line-height: 1.5;
@@ -138,24 +152,26 @@
             display: inline-flex;
             align-items: center;
             padding: 0.75rem 1.5rem;
-            background: #4f46e5;
-            color: white;
+            background: linear-gradient(90deg, #8b5cf6 0%, #4f46e5 100%) !important;
+            color: #fff !important;
             border-radius: 0.5rem;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
         }
 
-        .vote-button:hover {
-            background: #4338ca;
+        .vote-button:hover, .vote-button:focus {
+            background: linear-gradient(90deg, #a78bfa 0%, #6366f1 100%) !important;
+            color: #fff !important;
             transform: translateY(-2px);
         }
 
         .rewards-section {
-            background: white;
+            background: rgba(36, 39, 61, 0.97) !important;
             border-radius: 1rem;
             padding: 2rem;
             margin-bottom: 2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
         }
 
         .rewards-grid {
@@ -166,7 +182,10 @@
         }
 
         .reward-item {
-            background: #f3f4f6;
+            background: rgba(54, 57, 89, 0.98) !important;
+            color: #f8fafc !important;
+            border: 1px solid #353869;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
             border-radius: 0.75rem;
             padding: 1.5rem;
             transition: all 0.3s ease;
@@ -174,25 +193,27 @@
 
         .reward-item:hover {
             transform: translateY(-3px);
-            background: #e5e7eb;
+            background: rgba(54, 57, 89, 0.98) !important;
+            color: #f8fafc !important;
         }
 
         .reward-title {
             font-weight: 600;
-            color: #1a1a2e;
+            color: #fff !important;
             margin-bottom: 0.5rem;
         }
 
         .reward-description {
-            color: #6b7280;
+            color: #e0e7ef !important;
             font-size: 0.875rem;
         }
 
         .info-section {
-            background: white;
+            background: rgba(36, 39, 61, 0.97) !important;
             border-radius: 1rem;
             padding: 2rem;
             margin-bottom: 2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
         }
 
         .info-grid {
@@ -203,7 +224,10 @@
         }
 
         .info-card {
-            background: #f3f4f6;
+            background: rgba(54, 57, 89, 0.98) !important;
+            color: #f8fafc !important;
+            border: 1px solid #353869;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
             border-radius: 0.75rem;
             padding: 1.5rem;
             transition: all 0.3s ease;
@@ -216,7 +240,7 @@
 
         .info-title {
             font-weight: 600;
-            color: #1a1a2e;
+            color: #fff !important;
             margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
@@ -224,7 +248,7 @@
         }
 
         .info-description {
-            color: #6b7280;
+            color: #e0e7ef !important;
             font-size: 0.875rem;
         }
 
@@ -235,6 +259,71 @@
             to {
                 background-position: 100% 100%;
             }
+        }
+
+        ul, li, p, span, label, small, strong, b {
+            color: #f8fafc !important;
+        }
+
+        a, .card-link {
+            color: #8b5cf6 !important;
+        }
+
+        @media (max-width: 900px) {
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.2rem;
+            }
+            .info-card {
+                padding: 1.2rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 0 0.5rem;
+            }
+            .info-card {
+                padding: 1rem;
+                margin: 0 auto 1rem auto;
+                min-width: 0;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+            .info-title {
+                font-size: 1.1rem;
+            }
+            .info-description {
+                font-size: 0.95rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .info-card {
+                padding: 0.7rem;
+            }
+            .info-title {
+                font-size: 1rem;
+            }
+            .info-description {
+                font-size: 0.9rem;
+            }
+        }
+        .vote-card, .vote-platform, .vote-description {
+            color: #f8fafc !important;
+        }
+        .vote-card:hover {
+            color: #f8fafc !important;
+        }
+        .content-section h2, .content-section h3, h2, h3 {
+            color: #fff !important;
+        }
+        .sidebar, .sidebar-nav, .sidebar-logo {
+            background: #1a1c2c;
+        }
+        .nav-link, .nav-section-title, .nav-item, .sidebar-logo, .sidebar-nav {
+            color: #e0e7ef !important;
         }
     </style>
 </head>

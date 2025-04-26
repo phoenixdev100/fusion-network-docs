@@ -12,6 +12,155 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="shortcut icon" href="../assets/fusion-logo.png" type="image/x-icon">
+    <style>
+        body {
+            background: #23263a;
+            color: #f3f4f6;
+        }
+        .main-content {
+            background: #23263a;
+            min-height: 100vh;
+        }
+        .content-section {
+            background: rgba(36, 39, 61, 0.97) !important;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        }
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .staff-card {
+            background: rgba(54, 57, 89, 0.98) !important;
+            color: #f8fafc !important;
+            border: 1px solid #353869;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            border-radius: 1rem;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .staff-card h3, .section-header h2 {
+            color: #fff !important;
+        }
+        .staff-role, .staff-card p, .staff-info p, .section-header i, .social-info p {
+            color: #e0e7ef !important;
+        }
+        .section-header h2, .section-header i {
+            color: #fff !important;
+        }
+        .sidebar, .sidebar-nav, .sidebar-logo {
+            background: #1a1c2c;
+        }
+        .nav-link, .nav-section-title, .nav-item, .sidebar-logo, .sidebar-nav {
+            color: #e0e7ef !important;
+        }
+        ul, li, p, span, label, small, strong, b {
+            color: #e0e7ef !important;
+        }
+        a, .card-link, .social-link {
+            color: #8b5cf6 !important;
+        }
+        .social-card {
+            background: rgba(54, 57, 89, 0.98) !important;
+            color: #f8fafc !important;
+            border: 1px solid #353869;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .social-card:hover {
+            background: #353869 !important;
+            color: #fff !important;
+        }
+        .social-icon {
+            font-size: 2rem;
+            color: #a5b4fc !important;
+            margin-right: 1rem;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+            color: #fff !important;
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-title {
+            background: none !important;
+            -webkit-text-fill-color: #fff !important;
+            color: #fff !important;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero-description {
+            color: #e0e7ef !important;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        ::placeholder {
+            color: #bfc6e0 !important;
+            opacity: 1;
+        }
+        @media (max-width: 900px) {
+            .staff-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.2rem;
+            }
+            .staff-card {
+                padding: 1.2rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .staff-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 0 0.5rem;
+            }
+            .staff-card {
+                padding: 1rem;
+                margin: 0 auto 1rem auto;
+                min-width: 0;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+            .section-header h2 {
+                font-size: 1.1rem;
+            }
+            .staff-card h3 {
+                font-size: 1.1rem;
+            }
+            .staff-role, .staff-card p {
+                font-size: 0.95rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .staff-card {
+                padding: 0.7rem;
+            }
+            .section-header h2 {
+                font-size: 1rem;
+            }
+            .staff-card h3 {
+                font-size: 1rem;
+            }
+            .staff-role, .staff-card p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="layout-wrapper">

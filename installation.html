@@ -12,18 +12,18 @@
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Installation Guide - Fusion Network Minecraft Server">
     <meta property="og:description" content="Step-by-step guide to join Fusion Network. Install Java, Minecraft, and optimize your settings for the best gaming experience.">
-    <meta property="og:image" content="../assets/fusion-banner.jpg">
-    <meta property="og:url" content="https://fusionnetwork.com/pages/installation.html">
+    <meta property="og:image" content="../assets/fusion-banner.png">
+    <meta property="og:url" content="https://docs.fusion-network.xyz/installation.html">
     <meta property="og:type" content="website">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Installation Guide - Fusion Network Minecraft Server">
     <meta name="twitter:description" content="Step-by-step guide to join Fusion Network. Install Java, Minecraft, and optimize your settings for the best gaming experience.">
-    <meta name="twitter:image" content="../assets/fusion-banner.jpg">
+    <meta name="twitter:image" content="../assets/fusion-banner.png">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://fusionnetwork.com/pages/installation.html">
+    <link rel="canonical" href="https://docs.fusion-network.xyz/installation.html">
     
     <!-- Additional Meta Tags -->
     <meta name="robots" content="index, follow">
@@ -88,6 +88,55 @@
 
     <!-- Existing Styles -->
     <style>
+        body {
+            background: #23263a;
+            color: #f3f4f6;
+        }
+        .main-content {
+            background: #23263a;
+            min-height: 100vh;
+        }
+        .content-section {
+            background: rgba(36, 39, 61, 0.97);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        }
+        .info-card, .stat-card, .feature-card, .installation-card, .changelog-item {
+            background: rgba(54, 57, 89, 0.98);
+            color: #f8fafc;
+            border: 1px solid #353869;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        }
+        .info-card h3, .stat-card .stat-number, .feature-card h3, .installation-card h3, .changelog-item h3 {
+            color: #fff;
+        }
+        .stat-label, .feature-card p, .installation-card p, .changelog-item p, .info-card p {
+            color: #e0e7ef;
+        }
+        .content-section h2, .content-section h3 {
+            color: #fff;
+        }
+        a, .card-link {
+            color: #8b5cf6;
+        }
+        .sidebar, .sidebar-nav, .sidebar-logo {
+            background: #1a1c2c;
+        }
+        .nav-link, .nav-section-title, .nav-item, .sidebar-logo, .sidebar-nav {
+            color: #e0e7ef !important;
+        }
+        ul, li, p, span, label, small {
+            color: #e0e7ef !important;
+        }
+        .server-status, .server-status span {
+            color: #e0e7ef !important;
+        }
+        ::placeholder {
+            color: #bfc6e0 !important;
+            opacity: 1;
+        }
         .hero-section {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             padding: 4rem 1rem;
@@ -189,7 +238,7 @@
         }
 
         .installation-card {
-            background: #ffffff;
+            background: rgba(54, 57, 89, 0.98);
             border-radius: 1rem;
             padding: 2rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -197,138 +246,70 @@
             position: relative;
             overflow: hidden;
             margin-bottom: 2rem;
+            color: #f8fafc;
         }
-
-        .installation-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        .installation-title, .installation-card h3 {
+            color: #fff;
         }
-
-        .installation-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .installation-icon {
-            width: 48px;
-            height: 48px;
-            background: #f3f4f6;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-
-        .installation-content {
-            flex: 1;
-        }
-
-        .installation-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 0.5rem;
-        }
-
         .installation-subtitle {
-            color: #6b7280;
-            font-size: 0.875rem;
+            color: #bfc6e0;
         }
-
-        .step-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .step-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .step-list li:last-child {
-            border-bottom: none;
-        }
-
-        .step-number {
-            width: 28px;
-            height: 28px;
-            background: #4f46e5;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 0.875rem;
-            flex-shrink: 0;
-        }
-
-        .step-content {
-            flex: 1;
-        }
-
         .step-title {
             font-weight: 500;
-            color: #111827;
+            color: #e0e7ef;
             margin-bottom: 0.25rem;
         }
-
-        .step-description {
-            color: #6b7280;
-            font-size: 0.875rem;
+        .step-description, .step-note {
+            color: #bfc6e0;
+            font-size: 0.95em;
         }
-
-        .os-selector {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+        .step-list li {
+            border-bottom: 1px solid #353869;
         }
-
         .os-button {
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            border: 1px solid #e5e7eb;
-            background: #ffffff;
-            color: #374151;
-            font-weight: 500;
+            background: #23263a;
+            color: #e0e7ef;
+            border: 2px solid #6366f1;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+            padding: 0.7rem 1.6rem;
+            border-radius: 0.7rem;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.2rem;
+            outline: none;
             cursor: pointer;
-            transition: all 0.2s ease;
         }
-
         .os-button.active {
-            background: #4f46e5;
-            color: white;
-            border-color: #4f46e5;
+            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+            color: #fff;
+            border-color: #8b5cf6;
+            box-shadow: 0 4px 16px rgba(139,92,246,0.18);
         }
-
+        .os-button:hover:not(.active) {
+            background: #353869;
+            color: #fff;
+            border-color: #8b5cf6;
+            box-shadow: 0 2px 8px rgba(139,92,246,0.10);
+        }
         .os-content {
             display: none;
         }
-
         .os-content.active {
             display: block;
         }
-
         .code-block {
             background: #1a1a2e;
             border-radius: 0.5rem;
             padding: 1rem;
             margin: 1rem 0;
         }
-
         .code-block code {
             color: #e5e7eb;
             font-family: 'Fira Code', monospace;
             font-size: 0.875rem;
         }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -339,123 +320,91 @@
                 transform: translateY(0);
             }
         }
-
         /* Accordion Styles */
         .accordion-item {
-            border: 1px solid #e5e7eb;
+            border: 1px solid #353869;
             border-radius: 0.5rem;
             margin-bottom: 1rem;
             overflow: hidden;
+            background: rgba(54, 57, 89, 0.98);
         }
-
         .accordion-item h4 {
             margin: 0;
             padding: 1rem;
-            background: #f9fafb;
+            background: #353869;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: space-between;
             font-size: 1rem;
-            color: #111827;
+            color: #fff;
             transition: all 0.3s ease;
         }
-
-        .accordion-item h4::after {
-            content: '+';
-            font-size: 1.25rem;
-            font-weight: 500;
-            transition: transform 0.3s ease;
-        }
-
         .accordion-item.active h4 {
-            background: #4f46e5;
-            color: white;
+            background: #7c3aed;
+            color: #fff;
         }
-
-        .accordion-item.active h4::after {
-            content: '−';
-            transform: rotate(180deg);
-        }
-
         .accordion-content {
             max-height: 0;
             padding: 0 1rem;
             overflow: hidden;
             transition: all 0.3s ease;
-            background: white;
+            background: #23263a;
+            color: #e0e7ef;
         }
-
         .accordion-item.active .accordion-content {
             max-height: 1000px;
             padding: 1rem;
+            color: #e0e7ef;
         }
-
-        .solution-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        .accordion-content ul li, .accordion-content p, .accordion-content strong {
+            color: #e0e7ef !important;
         }
-
-        .solution-list > li {
-            margin-bottom: 1rem;
+        .accordion-content ul li code {
+            background: #353869;
+            color: #a5b4fc;
         }
-
-        .solution-list ul {
-            padding-left: 1.5rem;
-            margin-top: 0.5rem;
-        }
-
         .issue-description {
-            margin-bottom: 1rem;
-            color: #4b5563;
+            color: #bfc6e0 !important;
         }
-
         @media (max-width: 768px) {
+            .installation-cards, .grid-container, .connection-container {
+                display: block !important;
+            }
+            .feature-card, .installation-card, .info-card, .stat-card, .changelog-item, .primary-card {
+                padding: 1.2rem !important;
+                margin-bottom: 1.2rem !important;
+                min-width: 0 !important;
+            }
+            .os-selector {
+                flex-direction: column !important;
+                gap: 0.5rem !important;
+            }
+            .os-button {
+                width: 100% !important;
+                justify-content: center !important;
+            }
+            .step-list li, .connection-info, .connection-steps, .feature-list {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+            }
             .hero-section {
-                padding: 3rem 1rem;
-                margin: -1rem -1rem 1.5rem -1rem;
-                border-radius: 0;
-                min-height: 350px;
+                padding: 2rem 0.5rem !important;
+                min-height: 250px !important;
             }
-
             .hero-title {
-                font-size: 2.25rem;
-                margin-bottom: 0.75rem;
+                font-size: 2rem !important;
             }
-
             .hero-description {
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
-                padding: 0 0.5rem;
-            }
-
-            .hero-actions {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 0 1rem;
-            }
-
-            .download-options {
-                display: flex;
-                flex-direction: column;
-                gap: 0.75rem;
-                width: 100%;
-            }
-
-            .download-button {
-                width: 100%;
-                justify-content: center;
+                font-size: 1rem !important;
             }
         }
-
         .support-channels {
             display: flex;
             gap: 1rem;
             margin-top: 1.5rem;
             flex-wrap: wrap;
         }
-
         .support-btn {
             display: inline-flex;
             align-items: center;
@@ -471,16 +420,52 @@
             color: #fff;
             border: none;
         }
-
         .support-btn.email {
             background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
         }
-
         .support-btn:hover {
             transform: translateY(-2px) scale(1.04);
             box-shadow: 0 4px 16px rgba(0,0,0,0.12);
             text-decoration: none;
             color: #fff;
+        }
+        ul, li {
+            color: #e0e7ef !important;
+        }
+        ul li::marker, .solution-list > li::marker, .solution-list ul li::marker {
+            color: #a5b4fc !important;
+            font-size: 1.1em;
+        }
+        @media (max-width: 768px) {
+            #next-steps .grid-container {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1.2rem !important;
+            }
+            #next-steps .feature-card {
+                width: 100% !important;
+                min-width: 0 !important;
+                box-sizing: border-box !important;
+                margin: 0 !important;
+                padding: 1.2rem !important;
+                border-radius: 1rem !important;
+            }
+            #next-steps .feature-card h3,
+            #next-steps .feature-card p,
+            #next-steps .card-link {
+                text-align: left !important;
+                width: 100% !important;
+            }
+            #next-steps .card-link {
+                display: inline-block !important;
+                margin-top: 0.5rem !important;
+                padding: 0.7rem 1.2rem !important;
+                border-radius: 0.7rem !important;
+                background: #353869 !important;
+                color: #a5b4fc !important;
+                font-weight: 600 !important;
+                box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+            }
         }
     </style>
 </head>

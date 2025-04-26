@@ -12,18 +12,18 @@
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Getting Started - Fusion Network Minecraft Server">
     <meta property="og:description" content="Start your journey on Fusion Network! Complete beginner's guide with essential commands, game modes, and tips for new players.">
-    <meta property="og:image" content="../assets/fusion-banner.jpg">
-    <meta property="og:url" content="https://fusionnetwork.com/pages/getting-started.html">
+    <meta property="og:image" content="../assets/fusion-banner.png">
+    <meta property="og:url" content="https://docs.fusion-network.xyz/getting-started.html">
     <meta property="og:type" content="article">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Getting Started - Fusion Network Minecraft Server">
     <meta name="twitter:description" content="Start your journey on Fusion Network! Complete beginner's guide with essential commands and tips.">
-    <meta name="twitter:image" content="../assets/fusion-banner.jpg">
+    <meta name="twitter:image" content="../assets/fusion-banner.png">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://fusionnetwork.com/pages/getting-started.html">
+    <link rel="canonical" href="https://docs.fusion-network.xyz/getting-started.html">
     
     <!-- Additional Meta Tags -->
     <meta name="robots" content="index, follow">
@@ -70,6 +70,55 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        body {
+            background: #23263a;
+            color: #f3f4f6;
+        }
+        .main-content {
+            background: #23263a;
+            min-height: 100vh;
+        }
+        .content-section {
+            background: rgba(36, 39, 61, 0.97);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        }
+        .info-card, .stat-card, .feature-card, .changelog-item {
+            background: rgba(54, 57, 89, 0.98);
+            color: #f8fafc;
+            border: 1px solid #353869;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        }
+        .info-card h3, .stat-card .stat-number, .feature-card h3, .changelog-item h3 {
+            color: #fff;
+        }
+        .stat-label, .feature-card p, .changelog-item p, .info-card p {
+            color: #e0e7ef;
+        }
+        .content-section h2, .content-section h3 {
+            color: #fff;
+        }
+        a, .card-link {
+            color: #8b5cf6;
+        }
+        .sidebar, .sidebar-nav, .sidebar-logo {
+            background: #1a1c2c;
+        }
+        .nav-link, .nav-section-title, .nav-item, .sidebar-logo, .sidebar-nav {
+            color: #e0e7ef !important;
+        }
+        ul, li, p, span, label, small {
+            color: #e0e7ef !important;
+        }
+        .server-status, .server-status span {
+            color: #e0e7ef !important;
+        }
+        ::placeholder {
+            color: #bfc6e0 !important;
+            opacity: 1;
+        }
         /* Accordion Styles */
         .accordion-item {
             border: 1px solid #e5e7eb;
@@ -99,8 +148,8 @@
         }
 
         .accordion-item.active h4 {
-            background: #4f46e5;
-            color: white;
+            background: #7c3aed;
+            color: #fff;
         }
 
         .accordion-item.active h4::after {
@@ -113,12 +162,14 @@
             padding: 0 1rem;
             overflow: hidden;
             transition: all 0.3s ease;
-            background: white;
+            background: #23263a;
+            color: #e0e7ef;
         }
 
         .accordion-item.active .accordion-content {
             max-height: 1000px;
             padding: 1rem;
+            color: #e0e7ef;
         }
 
         .accordion-content ul {
@@ -128,11 +179,7 @@
         }
 
         .accordion-content ul li {
-            position: relative;
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            line-height: 1.5;
-            color: #4b5563;
+            color: #e0e7ef;
         }
 
         .accordion-content ul li::before {
@@ -144,12 +191,12 @@
         }
 
         .accordion-content ul li code {
-            background: #f3f4f6;
+            background: #353869;
+            color: #a5b4fc;
             padding: 0.2rem 0.4rem;
             border-radius: 0.25rem;
             font-family: 'Fira Code', monospace;
             font-size: 0.9em;
-            color: #4f46e5;
         }
 
         .solution-list {
