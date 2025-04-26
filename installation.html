@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Installation Guide - How to Join Fusion Network Minecraft Server</title>
+    <meta name="description" content="Complete installation guide for joining Fusion Network Minecraft server. Step-by-step instructions for Windows, Mac, and Linux. Download Java, Minecraft, and optimize your game settings.">
+    <meta name="keywords" content="Minecraft server installation, Fusion Network, Minecraft Java setup, game optimization, server connection guide">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Installation Guide - Fusion Network Minecraft Server">
+    <meta property="og:description" content="Step-by-step guide to join Fusion Network. Install Java, Minecraft, and optimize your settings for the best gaming experience.">
+    <meta property="og:image" content="../assets/fusion-banner.jpg">
+    <meta property="og:url" content="https://fusionnetwork.com/pages/installation.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Installation Guide - Fusion Network Minecraft Server">
+    <meta name="twitter:description" content="Step-by-step guide to join Fusion Network. Install Java, Minecraft, and optimize your settings for the best gaming experience.">
+    <meta name="twitter:image" content="../assets/fusion-banner.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://fusionnetwork.com/pages/installation.html">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Fusion Network">
+    <meta name="theme-color" content="#4f46e5">
+    
+    <!-- Existing Stylesheets -->
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/enhanced.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Install and Join Fusion Network Minecraft Server",
+        "description": "Complete guide for installing and connecting to the Fusion Network Minecraft server",
+        "totalTime": "PT30M",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Install Java",
+                "text": "Download and install the Java Runtime Environment required for Minecraft",
+                "url": "#installation-process"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Install Minecraft",
+                "text": "Download and set up the official Minecraft launcher",
+                "url": "#installation-process"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Configure Settings",
+                "text": "Optimize your game settings for the best performance",
+                "url": "#installation-process"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Connect to Server",
+                "text": "Join Fusion Network using the server address",
+                "url": "#joining-server"
+            }
+        ],
+        "tool": [
+            {
+                "@type": "HowToTool",
+                "name": "Java Runtime Environment"
+            },
+            {
+                "@type": "HowToTool",
+                "name": "Minecraft Java Edition"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Existing Styles -->
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 4rem 1rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            text-align: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.6s ease-out;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #a0a0b8;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .quick-join {
+            background: #4f46e5;
+            color: white;
+            padding: 0.875rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quick-join:hover {
+            background: #4338ca;
+            transform: translateY(-2px);
+        }
+
+        .download-options {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .download-button {
+            padding: 0.875rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .download-button.minecraft {
+            background: #2e9244;
+            color: white;
+        }
+
+        .download-button.java {
+            background: #e44d26;
+            color: white;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            filter: brightness(110%);
+        }
+
+        .installation-card {
+            background: #ffffff;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .installation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .installation-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .installation-icon {
+            width: 48px;
+            height: 48px;
+            background: #f3f4f6;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .installation-content {
+            flex: 1;
+        }
+
+        .installation-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+
+        .installation-subtitle {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        .step-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .step-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .step-list li:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            width: 28px;
+            height: 28px;
+            background: #4f46e5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-weight: 500;
+            color: #111827;
+            margin-bottom: 0.25rem;
+        }
+
+        .step-description {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        .os-selector {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .os-button {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e5e7eb;
+            background: #ffffff;
+            color: #374151;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .os-button.active {
+            background: #4f46e5;
+            color: white;
+            border-color: #4f46e5;
+        }
+
+        .os-content {
+            display: none;
+        }
+
+        .os-content.active {
+            display: block;
+        }
+
+        .code-block {
+            background: #1a1a2e;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .code-block code {
+            color: #e5e7eb;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.875rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Accordion Styles */
+        .accordion-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .accordion-item h4 {
+            margin: 0;
+            padding: 1rem;
+            background: #f9fafb;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1rem;
+            color: #111827;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item h4::after {
+            content: '+';
+            font-size: 1.25rem;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active h4 {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .accordion-item.active h4::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            padding: 0 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 1000px;
+            padding: 1rem;
+        }
+
+        .solution-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .solution-list > li {
+            margin-bottom: 1rem;
+        }
+
+        .solution-list ul {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .issue-description {
+            margin-bottom: 1rem;
+            color: #4b5563;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 3rem 1rem;
+                margin: -1rem -1rem 1.5rem -1rem;
+                border-radius: 0;
+                min-height: 350px;
+            }
+
+            .hero-title {
+                font-size: 2.25rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+                padding: 0 0.5rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+
+            .download-options {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+                width: 100%;
+            }
+
+            .download-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        .support-channels {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .support-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            background: linear-gradient(135deg, #5865F2 0%, #404EED 100%);
+            color: #fff;
+            border: none;
+        }
+
+        .support-btn.email {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+        }
+
+        .support-btn:hover {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <a href="../index.html">
+                    <img src="../assets/fusion-logo.png" alt="Fusion Network Logo">
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Get Started</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="getting-started.html" class="nav-link">Getting Started</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="installation.html" class="nav-link active">Installation</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Game Modes</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="lifesteal.html" class="nav-link">Lifesteal Economy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pvp.html" class="nav-link">PvP/FFA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="duels.html" class="nav-link">Duels</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="skyblock.html" class="nav-link">Skyblock (Coming Soon)</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Features</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="economy.html" class="nav-link">Economy System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="crates.html" class="nav-link">Crate System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ranks.html" class="nav-link">Ranks & Permissions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vote.html" class="nav-link">Voting System</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Community</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="rules.html" class="nav-link">Server Rules</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="support.html" class="nav-link">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="staff.html" class="nav-link">Staff Applications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="credits.html" class="nav-link">Credits</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Installation Guide</h1>
+                    <p class="hero-description">Get ready to join the adventure! Follow our comprehensive guide to set up your game and connect to Fusion Network in minutes.</p>
+                    <div class="hero-actions">
+                        <a href="#installation-process" class="quick-join">Quick Setup Guide →</a>
+                        <div class="download-options">
+                            <a href="https://www.minecraft.net/download" class="download-button minecraft" target="_blank">
+                                <span>Download Minecraft</span>
+                            </a>
+                            <a href="https://www.java.com/download/" class="download-button java" target="_blank">
+                                <span>Download Java</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="installation-process">
+                <h2>Installation Process</h2>
+                <div class="installation-cards">
+                    <div class="installation-card">
+                        <div class="installation-header">
+                            <div class="installation-icon">☕</div>
+                            <div class="installation-content">
+                                <h3 class="installation-title">Step 1: Install Java</h3>
+                                <p class="installation-subtitle">Set up the Java Runtime Environment required for Minecraft</p>
+                            </div>
+                        </div>
+                        <div class="os-selector">
+                            <button class="os-button active" data-os="windows">Windows</button>
+                            <button class="os-button" data-os="mac">macOS</button>
+                            <button class="os-button" data-os="linux">Linux</button>
+                        </div>
+                        <div class="os-content active" id="windows-guide">
+                            <ul class="step-list">
+                                <li>
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <div class="step-title">Download Java</div>
+                                        <div class="step-description">Visit <a href="https://www.java.com/download/" class="link-highlight">java.com</a> and download the Windows installer</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <div class="step-title">Run Installer</div>
+                                        <div class="step-description">Double-click JavaSetup.exe and follow the installation wizard</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <div class="step-title">Verify Installation</div>
+                                        <div class="step-description">Open Command Prompt and type:</div>
+                                        <div class="code-block">
+                                            <code>java -version</code>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="os-content" id="mac-guide">
+                            <ul class="step-list">
+                                <li>
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <div class="step-title">Download Java for Mac</div>
+                                        <div class="step-description">Visit <a href="https://www.java.com/download/" class="link-highlight">java.com</a> and download the macOS installer</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <div class="step-title">Install Java</div>
+                                        <div class="step-description">Open the .dmg file and follow the installation prompts</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <div class="step-title">Verify Installation</div>
+                                        <div class="step-description">Open Terminal and type:</div>
+                                        <div class="code-block">
+                                            <code>java -version</code>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="os-content" id="linux-guide">
+                            <ul class="step-list">
+                                <li>
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <div class="step-title">Update Package List</div>
+                                        <div class="step-description">Open Terminal and update your package list:</div>
+                                        <div class="code-block">
+                                            <code>sudo apt update</code>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <div class="step-title">Install Java</div>
+                                        <div class="step-description">Install OpenJDK using the package manager:</div>
+                                        <div class="code-block">
+                                            <code>sudo apt install openjdk-17-jre</code>
+                                        </div>
+                                        <div class="step-note">For other distributions, use your package manager:</div>
+                                        <div class="code-block">
+                                            <code># Fedora/RHEL:
+dnf install java-17-openjdk
+
+# Arch Linux:
+pacman -S jre-openjdk</code>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <div class="step-title">Verify Installation</div>
+                                        <div class="step-description">Check Java version:</div>
+                                        <div class="code-block">
+                                            <code>java -version</code>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <div class="step-title">Set JAVA_HOME (Optional)</div>
+                                        <div class="step-description">Add Java to your environment variables:</div>
+                                        <div class="code-block">
+                                            <code>echo 'export JAVA_HOME=/usr/lib/jvm/java-17-openjdk' >> ~/.bashrc
+source ~/.bashrc</code>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="installation-card">
+                        <div class="installation-header">
+                            <div class="installation-icon">🎮</div>
+                            <div class="installation-content">
+                                <h3 class="installation-title">Step 2: Install Minecraft</h3>
+                                <p class="installation-subtitle">Download and set up the official Minecraft launcher</p>
+                            </div>
+                        </div>
+                        <ul class="step-list">
+                            <li>
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <div class="step-title">Download Minecraft Launcher</div>
+                                    <div class="step-description">Visit <a href="https://www.minecraft.net/download" class="link-highlight">minecraft.net/download</a> and download the official launcher</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <div class="step-title">Install and Sign In</div>
+                                    <div class="step-description">Run the installer and sign in with your Microsoft account</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <div class="step-title">Create New Installation</div>
+                                    <div class="step-description">Click "Installations" tab → "New Installation" → Select version 1.8 or higher</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="installation-card">
+                        <div class="installation-header">
+                            <div class="installation-icon">⚙️</div>
+                            <div class="installation-content">
+                                <h3 class="installation-title">Step 3: Configure Settings</h3>
+                                <p class="installation-subtitle">Optimize your game settings for the best performance</p>
+                            </div>
+                        </div>
+                        <ul class="step-list">
+                            <li>
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <div class="step-title">Allocate Memory</div>
+                                    <div class="step-description">In launcher settings, set JVM arguments:</div>
+                                    <div class="code-block">
+                                        <code>-Xmx2G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC</code>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <div class="step-title">Install OptiFine</div>
+                                    <div class="step-description">Download and install OptiFine for better performance</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <div class="step-title">Optimize Video Settings</div>
+                                    <div class="step-description">Adjust render distance, particles, and graphics quality</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="system-requirements">
+                <h2>System Requirements</h2>
+                <div class="grid-container">
+                    <div class="feature-card">
+                        <h3>Minimum Requirements</h3>
+                        <p>Basic requirements to run the game smoothly.</p>
+                        <ul class="feature-list">
+                            <li>✓ 2GB RAM (4GB recommended)</li>
+                            <li>✓ Dual-core CPU</li>
+                            <li>✓ Stable internet connection</li>
+                            <li>✓ 2GB free disk space</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Software Requirements</h3>
+                        <p>Required software for optimal gameplay.</p>
+                        <ul class="feature-list">
+                            <li>✓ Windows 7/Mac OS X 10.12/Linux</li>
+                            <li>✓ Java 8 or higher</li>
+                            <li>✓ Minecraft Java Edition</li>
+                            <li>✓ Latest graphics drivers</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Recommended Setup</h3>
+                        <p>For the best gaming experience.</p>
+                        <ul class="feature-list">
+                            <li>✓ 8GB+ RAM allocated</li>
+                            <li>✓ SSD storage</li>
+                            <li>✓ Gaming mouse</li>
+                            <li>✓ Wired internet connection</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="joining-server">
+                <h2>Connecting to Fusion Network</h2>
+                <div class="connection-container">
+                    <div class="feature-card primary-card">
+                        <h3>Server Details</h3>
+                        <div class="connection-info">
+                            <div class="info-item">
+                                <strong>Primary IP:</strong>
+                                <code class="copyable">fusion-network.xyz</code>
+                            </div>
+                            <div class="info-item">
+                                <strong>Backup IP:</strong>
+                                <code class="copyable">as.fusion-network.xyz</code>
+                            </div>
+                            <div class="info-item">
+                                <strong>Port:</strong>
+                                <code>25565</code> (Default)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-container">
+                        <div class="feature-card">
+                            <h3>Direct Connection</h3>
+                            <ol class="step-list">
+                                <li>Launch Minecraft</li>
+                                <li>Click "Multiplayer"</li>
+                                <li>Click "Add Server"</li>
+                                <li>Enter server details</li>
+                                <li>Click "Done"</li>
+                            </ol>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Quick Connect</h3>
+                            <ol class="step-list">
+                                <li>Visit our website</li>
+                                <li>Click "Play Now"</li>
+                                <li>Allow browser to open Minecraft</li>
+                                <li>Click "Join Server"</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="troubleshooting">
+                <h2>Troubleshooting</h2>
+                <div class="grid-container">
+                    <div class="feature-card">
+                        <h3>Common Issues</h3>
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <h4>Connection Failed</h4>
+                                <div class="accordion-content">
+                                    <p class="issue-description">If you're unable to connect to the server, try these solutions:</p>
+                                    <ul class="solution-list">
+                                        <li><strong>Check Internet Connection:</strong>
+                                            <ul>
+                                                <li>Test your connection speed at <a href="https://speedtest.net">speedtest.net</a></li>
+                                                <li>Ensure minimum 5Mbps download/upload speed</li>
+                                                <li>Try connecting via ethernet instead of WiFi</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Verify Server Address:</strong>
+                                            <ul>
+                                                <li>Double-check the server IP: fusion-network.xyz</li>
+                                                <li>Ensure port 25565 is not blocked by firewall</li>
+                                                <li>Try direct IP if DNS resolution fails</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Try Backup IP:</strong>
+                                            <ul>
+                                                <li>Use backup.fusion-network.xyz</li>
+                                                <li>Clear DNS cache if needed</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Network Settings:</strong>
+                                            <ul>
+                                                <li>Disable VPN/proxy services</li>
+                                                <li>Add Minecraft to firewall exceptions</li>
+                                                <li>Flush DNS: ipconfig /flushdns (Windows)</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h4>Performance Issues</h4>
+                                <div class="accordion-content">
+                                    <p class="issue-description">Experiencing lag or FPS drops? Here's how to improve performance:</p>
+                                    <ul class="solution-list">
+                                        <li><strong>Increase RAM Allocation:</strong>
+                                            <ul>
+                                                <li>Recommended: 4GB minimum for smooth gameplay</li>
+                                                <li>Edit JVM arguments in launcher settings</li>
+                                                <li>Use: -Xmx4G -XX:+UseG1GC -XX:+ParallelRefProcEnabled</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Graphics Settings:</strong>
+                                            <ul>
+                                                <li>Update graphics drivers to latest version</li>
+                                                <li>Reduce render distance to 8-12 chunks</li>
+                                                <li>Set Graphics to Fast instead of Fancy</li>
+                                                <li>Disable V-Sync if causing issues</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>OptiFine Installation:</strong>
+                                            <ul>
+                                                <li>Download from optifine.net</li>
+                                                <li>Enable performance-enhancing options</li>
+                                                <li>Disable animated textures</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>System Optimization:</strong>
+                                            <ul>
+                                                <li>Close background applications</li>
+                                                <li>Update Java to latest version</li>
+                                                <li>Defragment game files (Windows)</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h4>Version Mismatch</h4>
+                                <div class="accordion-content">
+                                    <p class="issue-description">Getting version errors? Follow these steps:</p>
+                                    <ul class="solution-list">
+                                        <li><strong>Correct Version Setup:</strong>
+                                            <ul>
+                                                <li>Server supports versions 1.12 to 1.21</li>
+                                                <li>Recommended version: 1.21</li>
+                                                <li>Enable version compatibility in settings</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Installation Fix:</strong>
+                                            <ul>
+                                                <li>Create new installation in launcher</li>
+                                                <li>Select correct version from dropdown</li>
+                                                <li>Verify installation integrity</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Launcher Issues:</strong>
+                                            <ul>
+                                                <li>Update Minecraft launcher</li>
+                                                <li>Clear %appdata%/.minecraft/versions</li>
+                                                <li>Reinstall if problems persist</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Mod Conflicts:</strong>
+                                            <ul>
+                                                <li>Remove incompatible mods</li>
+                                                <li>Check mod version compatibility</li>
+                                                <li>Try vanilla client first</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h4>Client Crashes</h4>
+                                <div class="accordion-content">
+                                    <p class="issue-description">If your game crashes frequently:</p>
+                                    <ul class="solution-list">
+                                        <li><strong>Memory Management:</strong>
+                                            <ul>
+                                                <li>Check crash logs in .minecraft/crash-reports</li>
+                                                <li>Increase RAM allocation if needed</li>
+                                                <li>Clear temporary files</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Java Issues:</strong>
+                                            <ul>
+                                                <li>Reinstall Java (64-bit version)</li>
+                                                <li>Remove conflicting Java versions</li>
+                                                <li>Update Java to latest release</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>File Integrity:</strong>
+                                            <ul>
+                                                <li>Verify game files</li>
+                                                <li>Delete and reinstall if corrupted</li>
+                                                <li>Check for resource pack conflicts</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Need Help?</h3>
+                        <p>Our support team is available 24/7 to assist you with any issues.</p>
+                        <div class="support-channels">
+                            <a href="https://discord.gg/wk6yJGHkKP" class="support-btn discord" target="_blank">
+                                <span>💬</span> Join Discord Support
+                            </a>
+                            <a href="mailto:support@fusion-network.xyz" class="support-btn email">
+                                <span>✉️</span> Email Support
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="next-steps">
+                <h2>Ready to Play?</h2>
+                <div class="grid-container">
+                    <a href="getting-started.html" class="feature-card">
+                        <h3>Getting Started Guide</h3>
+                        <p>Learn the basics of playing on our server.</p>
+                        <span class="card-link">Start Playing →</span>
+                    </a>
+                    <a href="rules.html" class="feature-card">
+                        <h3>Server Rules</h3>
+                        <p>Review our community guidelines.</p>
+                        <span class="card-link">Read Rules →</span>
+                    </a>
+                    <a href="ranks.html" class="feature-card">
+                        <h3>Ranks & Perks</h3>
+                        <p>Discover available ranks and benefits.</p>
+                        <span class="card-link">View Ranks →</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Mobile Navigation Toggle -->
+    <button class="mobile-nav-toggle">☰</button>
+
+    
+    <script src="../js/main.js"></script>
+    <script src="../js/copy.js"></script>
+    <script src="../js/animations.js"></script>
+    <script>
+        // OS Selector functionality
+        document.querySelectorAll('.os-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                document.querySelectorAll('.os-button').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.os-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                const os = button.getAttribute('data-os');
+                document.getElementById(`${os}-guide`).classList.add('active');
+            });
+        });
+
+        // Accordion functionality
+        document.querySelectorAll('.accordion-item h4').forEach(header => {
+            header.addEventListener('click', () => {
+                const accordionItem = header.parentElement;
+                const isActive = accordionItem.classList.contains('active');
+                
+                // Close all accordion items
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // If the clicked item wasn't active, open it
+                if (!isActive) {
+                    accordionItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

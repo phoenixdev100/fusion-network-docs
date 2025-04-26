@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Applications - Fusion Network</title>
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/enhanced.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../assets/economy-pattern.png') repeat;
+            opacity: 0.1;
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            from { background-position: 0 0; }
+            to { background-position: -200px -200px; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #a0a0b8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-stat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-5px);
+        }
+
+        .hero-stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #4f46e5;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-stat-label {
+            color: #a0a0b8;
+            font-size: 0.9rem;
+        }
+
+        .staff-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .staff-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .staff-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #4f46e5, #6366f1);
+        }
+
+        .staff-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .staff-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .staff-icon {
+            width: 48px;
+            height: 48px;
+            background: #f3f4f6;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .staff-title {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .staff-subtitle {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .staff-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .staff-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .staff-item:last-child {
+            border-bottom: none;
+        }
+
+        .staff-item-icon {
+            width: 24px;
+            height: 24px;
+            background: #f3f4f6;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+            font-size: 1rem;
+            flex-shrink: 0;
+            color: #4f46e5;
+        }
+
+        .staff-item-content {
+            flex: 1;
+        }
+
+        .staff-item-title {
+            font-weight: 500;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+
+        .staff-item-text {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .apply-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(45deg, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .apply-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .apply-button svg {
+            margin-right: 0.5rem;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .process-step {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(45deg, #4f46e5, #6366f1);
+        }
+
+        .process-step:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-number {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #4f46e5;
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <a href="../index.html">
+                    <img src="../assets/fusion-logo.png" alt="Fusion Network Logo">
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Get Started</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="getting-started.html" class="nav-link">Getting Started</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="installation.html" class="nav-link">Installation</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Game Modes</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="lifesteal.html" class="nav-link">Lifesteal Economy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pvp.html" class="nav-link">PvP/FFA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="duels.html" class="nav-link">Duels</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="skyblock.html" class="nav-link">Skyblock (Coming Soon)</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Features</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="economy.html" class="nav-link">Economy System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="crates.html" class="nav-link">Crate System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ranks.html" class="nav-link">Ranks & Permissions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vote.html" class="nav-link">Voting System</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Community</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="rules.html" class="nav-link">Server Rules</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="support.html" class="nav-link">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="staff.html" class="nav-link active">Staff Applications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="credits.html" class="nav-link">Credits</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Join Our Staff Team</h1>
+                    <p class="hero-description">Help shape the future of Fusion Network. We're looking for passionate individuals who want to make a difference in our community.</p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">24/7</div>
+                            <div class="hero-stat-label">Active Staff Team</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">4+</div>
+                            <div class="hero-stat-label">Staff Positions</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">100+</div>
+                            <div class="hero-stat-label">Staff Members</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="staff-section">
+                <h2>Staff Positions</h2>
+                <div class="staff-grid">
+                    <div class="staff-card">
+                        <div class="staff-header">
+                            <div class="staff-icon">🌟</div>
+                            <div>
+                                <h3 class="staff-title">Helper</h3>
+                                <p class="staff-subtitle">Entry Level Position</p>
+                            </div>
+                        </div>
+                        <ul class="staff-list">
+                            <li class="staff-item">
+                                <div class="staff-item-icon">⏰</div>
+                                <div class="staff-item-content">
+                                    <div class="staff-item-title">30+ Hours Playtime</div>
+                                    <div class="staff-item-text">Active server participation required</div>
+                                </div>
+                            </li>
+                            <li class="staff-item">
+                                <div class="staff-item-icon">📚</div>
+                                <div class="staff-item-content">
+                                    <div class="staff-item-title">Basic Knowledge</div>
+                                    <div class="staff-item-text">Understanding of server features</div>
+                                </div>
+                            </li>
+                            <li class="staff-item">
+                                <div class="staff-item-icon">🤝</div>
+                                <div class="staff-item-content">
+                                    <div class="staff-item-title">Helpful Attitude</div>
+                                    <div class="staff-item-text">Friendly and supportive personality</div>
+                                </div>
+                            </li>
+                            <li class="staff-item">
+                                <div class="staff-item-icon">👥</div>
+                                <div class="staff-item-content">
+                                    <div class="staff-item-title">Team Player</div>
+                                    <div class="staff-item-text">Ability to work with others</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="staff-card">
+                        <div class="staff-header">
+                            <div class="staff-icon">🛡️</div>
+                            <div>
+                                <h3 class="staff-title">Moderator</h3>
+                                <p class="staff-subtitle">Intermediate Position</p>
+                            </div>
+                        </div>
+                        <ul class="staff-list">
+                            <li class="staff-item">
+                                <div class="staff-item-icon">⚡</div>
+                                <div class="staff-item-content">
+                                    <div class="staff-item-title">100+ Hours Playtime</div>
+                                    <div class="staff-item-text">Extensive server experience</div>
+                                </div>
+                            </li>
+                            <li class="staff-item">
+                                <div class="staff-item-icon">🎯</div>
+                                <div class="staff-item-content">
+                                    <div class="staff-item-title">Previous Experience</div>
+                                    <div class="staff-item-text">Staff experience preferred</div>
+                                </div>
+                            </li>
+                            <li class="staff-item">
+                                <div class="staff-item-icon">📊</div>
+                                <div class="staff-item-content">
+                                    <div class="staff-item-title">Advanced Knowledge</div>
+                                    <div class="staff-item-text">Deep understanding of mechanics</div>
+                                </div>
+                            </li>
+                            <li class="staff-item">
+                                <div class="staff-item-icon">👑</div>
+                                <div class="staff-item-content">
+                                    <div class="staff-item-title">Leadership Skills</div>
+                                    <div class="staff-item-text">Ability to guide and mentor</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="staff-card">
+                        <div class="staff-header">
+                            <div class="staff-icon">⚙️</div>
+                            <div>
+                                <h3 class="staff-title">Administrator</h3>
+                                <p class="staff-subtitle">Advanced Position</p>
+                            </div>
+                        </div>
+                        <ul class="staff-list">
+                            <li class="staff-item">
+                                <div class="staff-item-icon">🌐</div>
+                                <div class="staff-item-content">
+                                    <div class="staff-item-title">Server Management</div>
+                                    <div class="staff-item-text">Technical administration skills</div>
+                                </div>
+                            </li>
+                            <li class="staff-item">
+                                <div class="staff-item-icon">📈</div>
+                                <div class="staff-item-content">
+                                    <div class="staff-item-title">Strategic Planning</div>
+                                    <div class="staff-item-text">Server growth and development</div>
+                                </div>
+                            </li>
+                            <li class="staff-item">
+                                <div class="staff-item-icon">🔧</div>
+                                <div class="staff-item-content">
+                                    <div class="staff-item-title">Problem Solving</div>
+                                    <div class="staff-item-text">Complex issue resolution</div>
+                                </div>
+                            </li>
+                            <li class="staff-item">
+                                <div class="staff-item-icon">🤝</div>
+                                <div class="staff-item-content">
+                                    <div class="staff-item-title">Team Management</div>
+                                    <div class="staff-item-text">Staff coordination and training</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="staff-section">
+                <h2>Application Process</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">Step 1: Initial Application</div>
+                        <p>Submit your application through our online form. Include your experience, skills, and why you want to join our staff team. Be honest and detailed in your responses.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">Step 2: Interview</div>
+                        <p>Selected candidates will be invited for a Discord voice interview. We'll discuss your application, assess your knowledge, and evaluate how you handle various scenarios.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">Step 3: Training Period</div>
+                        <p>Successful applicants undergo a comprehensive training program. Learn our policies, commands, and best practices while working alongside experienced staff members.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">Step 4: Final Review</div>
+                        <p>After completing training, your performance will be reviewed. Upon passing, you'll become an official member of our staff team with full responsibilities.</p>
+                    </div>
+                </div>
+                <a href="https://apply.fusionnetwork.com" class="apply-button" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                    Apply Now
+                </a>
+            </section>
+        </main>
+    </div>
+
+    <!-- Mobile Navigation Toggle -->
+    <button class="mobile-nav-toggle">☰</button>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

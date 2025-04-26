@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duels - Fusion Network</title>
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/enhanced.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #a0a0b8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #4f46e5;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #a0a0b8;
+            font-size: 0.9rem;
+        }
+
+        .mode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .mode-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .mode-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #4f46e5);
+        }
+
+        .mode-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .mode-icon {
+            width: 48px;
+            height: 48px;
+            background: #f3f4f6;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .kit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .kit-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .kit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .kit-icon {
+            width: 48px;
+            height: 48px;
+            background: #f3f4f6;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .rank-tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .rank-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .rank-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .rank-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .command-card {
+            background: #1a1a2e;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .command-list {
+            background: #16213e;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .command-list code {
+            color: #a0a0b8;
+            display: block;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .command-list code:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .rule-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rule-list li {
+            position: relative;
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            line-height: 1.6;
+            color: #4b5563;
+        }
+
+        .rule-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #4f46e5;
+            font-weight: bold;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <a href="../index.html">
+                    <img src="../assets/fusion-logo.png" alt="Fusion Network Logo">
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Get Started</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="getting-started.html" class="nav-link">Getting Started</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="installation.html" class="nav-link">Installation</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Game Modes</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="lifesteal.html" class="nav-link">Lifesteal Economy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pvp.html" class="nav-link">PvP/FFA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="duels.html" class="nav-link active">Duels</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="skyblock.html" class="nav-link">Skyblock (Coming Soon)</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Features</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="economy.html" class="nav-link">Economy System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="crates.html" class="nav-link">Crate System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ranks.html" class="nav-link">Ranks & Permissions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vote.html" class="nav-link">Voting System</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Community</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="rules.html" class="nav-link">Server Rules</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="support.html" class="nav-link">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="staff.html" class="nav-link">Staff Applications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="credits.html" class="nav-link">Credits</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Duels Arena</h1>
+                    <p class="hero-description">Challenge players to intense 1v1 battles, master different kits, and climb the competitive ladder. Prove your worth in ranked matches or practice in casual duels.</p>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Unique Kits</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">2K+</div>
+                            <div class="stat-label">Daily Matches</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Ranked Tiers</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">$5K</div>
+                            <div class="stat-label">Season Prize</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Game Modes</h2>
+                <div class="mode-grid">
+                    <div class="mode-card">
+                        <div class="mode-icon">🏆</div>
+                        <h3>Ranked Duels</h3>
+                        <p>Compete in skill-based matchmaking for glory and rewards.</p>
+                        <ul class="rule-list">
+                            <li>ELO-based matchmaking system</li>
+                            <li>Seasonal rewards and rankings</li>
+                            <li>Competitive leaderboards</li>
+                            <li>Special titles for top players</li>
+                            <li>End-of-season prizes</li>
+                        </ul>
+                    </div>
+                    <div class="mode-card">
+                        <div class="mode-icon">🎮</div>
+                        <h3>Casual Duels</h3>
+                        <p>Practice your skills without the pressure of rankings.</p>
+                        <ul class="rule-list">
+                            <li>No ELO impact</li>
+                            <li>All kits available</li>
+                            <li>Perfect for training</li>
+                            <li>Quick matchmaking</li>
+                            <li>Custom match settings</li>
+                        </ul>
+                    </div>
+                    <div class="mode-card">
+                        <div class="mode-icon">🎯</div>
+                        <h3>Tournament Mode</h3>
+                        <p>Participate in organized competitions with brackets.</p>
+                        <ul class="rule-list">
+                            <li>Weekly tournaments</li>
+                            <li>Double elimination format</li>
+                            <li>Live spectating</li>
+                            <li>Prize pools</li>
+                            <li>Special tournament kits</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Combat Kits</h2>
+                <div class="kit-grid">
+                    <div class="kit-card">
+                        <div class="kit-icon">⚔️</div>
+                        <h3>Diamond Warrior</h3>
+                        <p>The classic duelist's choice for balanced combat.</p>
+                        <ul class="rule-list">
+                            <li>Diamond Sword (Sharpness III)</li>
+                            <li>Full Diamond Armor (Protection II)</li>
+                            <li>Golden Apples (x3)</li>
+                            <li>Strength Potion (x1)</li>
+                            <li>Health Potions (x2)</li>
+                        </ul>
+                    </div>
+                    <div class="kit-card">
+                        <div class="kit-icon">🏹</div>
+                        <h3>Master Archer</h3>
+                        <p>Dominate from range with superior bow skills.</p>
+                        <ul class="rule-list">
+                            <li>Power V Bow (Infinity)</li>
+                            <li>Leather Armor (Projectile Protection IV)</li>
+                            <li>Spectral Arrows</li>
+                            <li>Speed II Potions (x2)</li>
+                            <li>Invisibility Potion (x1)</li>
+                        </ul>
+                    </div>
+                    <div class="kit-card">
+                        <div class="kit-icon">☠️</div>
+                        <h3>Debuff Master</h3>
+                        <p>Control the fight with strategic potion effects.</p>
+                        <ul class="rule-list">
+                            <li>Iron Sword (Sharpness IV)</li>
+                            <li>Chain Armor (Protection III)</li>
+                            <li>Poison II Potions (x3)</li>
+                            <li>Slowness Potions (x2)</li>
+                            <li>Weakness Potions (x2)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Ranking System</h2>
+                <div class="rank-tiers">
+                    <div class="rank-card">
+                        <div class="rank-icon">🥉</div>
+                        <h3>Bronze</h3>
+                        <p>0 - 1200 ELO</p>
+                        <ul class="rule-list">
+                            <li>Basic kit access</li>
+                            <li>Daily rewards</li>
+                            <li>Practice mode</li>
+                        </ul>
+                    </div>
+                    <div class="rank-card">
+                        <div class="rank-icon">🥈</div>
+                        <h3>Silver</h3>
+                        <p>1201 - 1800 ELO</p>
+                        <ul class="rule-list">
+                            <li>Advanced kit access</li>
+                            <li>Weekly rewards</li>
+                            <li>Tournament entry</li>
+                        </ul>
+                    </div>
+                    <div class="rank-card">
+                        <div class="rank-icon">🥇</div>
+                        <h3>Gold</h3>
+                        <p>1801 - 2400 ELO</p>
+                        <ul class="rule-list">
+                            <li>All kits unlocked</li>
+                            <li>Premium rewards</li>
+                            <li>Custom titles</li>
+                        </ul>
+                    </div>
+                    <div class="rank-card">
+                        <div class="rank-icon">👑</div>
+                        <h3>Champion</h3>
+                        <p>2400+ ELO</p>
+                        <ul class="rule-list">
+                            <li>Exclusive cosmetics</li>
+                            <li>Season rewards</li>
+                            <li>Special arena effects</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Essential Commands</h2>
+                <div class="command-card">
+                    <div class="command-list">
+                        <code>/duel [player] - Challenge a player</code>
+                        <code>/duel accept - Accept a challenge</code>
+                        <code>/duel kit [name] - Select your kit</code>
+                        <code>/duel stats [player] - View statistics</code>
+                        <code>/duel top - View leaderboard</code>
+                        <code>/duel spectate [player] - Watch a match</code>
+                        <code>/duel practice - Enter practice mode</code>
+                        <code>/duel tournament - View active tournaments</code>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Seasonal Rewards</h2>
+                <div class="mode-grid">
+                    <div class="mode-card">
+                        <div class="mode-icon">💎</div>
+                        <h3>Top 10 Rewards</h3>
+                        <ul class="rule-list">
+                            <li>Exclusive champion title</li>
+                            <li>Special armor effects</li>
+                            <li>Custom kill messages</li>
+                            <li>Season victory cape</li>
+                            <li>Prize pool share</li>
+                        </ul>
+                    </div>
+                    <div class="mode-card">
+                        <div class="mode-icon">🏅</div>
+                        <h3>Participation Rewards</h3>
+                        <ul class="rule-list">
+                            <li>Season participant title</li>
+                            <li>Bonus experience points</li>
+                            <li>Mystery crate keys</li>
+                            <li>Exclusive emotes</li>
+                            <li>Season profile badge</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Mobile Navigation Toggle -->
+        <button class="mobile-nav-toggle">☰</button>
+
+        <script src="../js/main.js"></script>
+    </body>
+</html> 

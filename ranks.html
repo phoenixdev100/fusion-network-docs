@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranks & Permissions - Fusion Network</title>
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/enhanced.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../assets/economy-pattern.png') repeat;
+            opacity: 0.1;
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            from { background-position: 0 0; }
+            to { background-position: -200px -200px; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #a0a0b8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-stat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-5px);
+        }
+
+        .hero-stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #4f46e5;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-stat-label {
+            color: #a0a0b8;
+            font-size: 0.9rem;
+        }
+
+        .store-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .store-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .store-button svg {
+            margin-right: 0.5rem;
+        }
+
+        .rank-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .rank-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .rank-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .rank-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .rank-card.legendary::before { background: linear-gradient(45deg, #ffd700, #ff6b6b); }
+        .rank-card.epic::before { background: linear-gradient(45deg, #9333ea, #4f46e5); }
+        .rank-card.rare::before { background: linear-gradient(45deg, #3b82f6, #06b6d4); }
+        .rank-card.uncommon::before { background: linear-gradient(45deg, #10b981, #34d399); }
+        .rank-card.common::before { background: linear-gradient(45deg, #6b7280, #9ca3af); }
+
+        .rank-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .rank-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .rank-icon {
+            width: 48px;
+            height: 48px;
+            background: #f3f4f6;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .rank-title {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .rank-subtitle {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .perk-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .perk-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .perk-item:last-child {
+            border-bottom: none;
+        }
+
+        .perk-icon {
+            width: 24px;
+            height: 24px;
+            background: #f3f4f6;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .perk-name {
+            font-weight: 500;
+            color: #1f2937;
+        }
+
+        .rank-price {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #4f46e5;
+            margin-top: 1rem;
+            text-align: right;
+        }
+
+        .info-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-card {
+            background: #f9fafb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: #f3f4f6;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-text {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <a href="../index.html">
+                    <img src="../assets/fusion-logo.png" alt="Fusion Network Logo">
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Get Started</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="getting-started.html" class="nav-link">Getting Started</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="installation.html" class="nav-link">Installation</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Game Modes</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="lifesteal.html" class="nav-link">Lifesteal Economy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pvp.html" class="nav-link">PvP/FFA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="duels.html" class="nav-link">Duels</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="skyblock.html" class="nav-link">Skyblock</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Features</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="economy.html" class="nav-link">Economy System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="crates.html" class="nav-link">Crate System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ranks.html" class="nav-link active">Ranks & Permissions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vote.html" class="nav-link">Voting System</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Community</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="rules.html" class="nav-link">Server Rules</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="support.html" class="nav-link">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="staff.html" class="nav-link">Staff Applications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="credits.html" class="nav-link">Credits</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Server Ranks & Permissions</h1>
+                    <p class="hero-description">Unlock exclusive perks and enhance your gameplay experience with our premium ranks. Choose from a variety of ranks tailored for both PvP and Lifesteal game modes.</p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">10+</div>
+                            <div class="hero-stat-label">Unique Ranks</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">50+</div>
+                            <div class="hero-stat-label">Special Perks</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">24/7</div>
+                            <div class="hero-stat-label">Support</div>
+                        </div>
+                    </div>
+                    <a href="https://fusion-network.tebex.io/" class="store-button" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        Visit Store
+                    </a>
+                </div>
+            </section>
+
+            <section class="rank-section">
+                <h2>PvP Server Ranks</h2>
+                <div class="rank-grid">
+                    <div class="rank-card legendary">
+                        <div class="rank-header">
+                            <div class="rank-icon">👑</div>
+                            <div>
+                                <h3 class="rank-title">Legendary</h3>
+                                <p class="rank-subtitle">Ultimate PvP Experience</p>
+                            </div>
+                        </div>
+                        <ul class="perk-list">
+                            <li class="perk-item">
+                                <div class="perk-icon">⚔️</div>
+                                <div class="perk-name">All Kit Access</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">✨</div>
+                                <div class="perk-name">Custom Particle Effects</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">🎯</div>
+                                <div class="perk-name">Priority Queue</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">💎</div>
+                                <div class="perk-name">Exclusive Cosmetics</div>
+                            </li>
+                        </ul>
+                        <div class="rank-price">$49.99</div>
+                    </div>
+
+                    <div class="rank-card epic">
+                        <div class="rank-header">
+                            <div class="rank-icon">⚡</div>
+                            <div>
+                                <h3 class="rank-title">Epic</h3>
+                                <p class="rank-subtitle">Enhanced Combat Power</p>
+                            </div>
+                        </div>
+                        <ul class="perk-list">
+                            <li class="perk-item">
+                                <div class="perk-icon">⚔️</div>
+                                <div class="perk-name">Premium Kit Access</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">🎨</div>
+                                <div class="perk-name">Custom Name Color</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">🏃</div>
+                                <div class="perk-name">Fast Travel</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">🎁</div>
+                                <div class="perk-name">Daily Rewards</div>
+                            </li>
+                        </ul>
+                        <div class="rank-price">$29.99</div>
+                    </div>
+
+                    <div class="rank-card rare">
+                        <div class="rank-header">
+                            <div class="rank-icon">🌟</div>
+                            <div>
+                                <h3 class="rank-title">Elite</h3>
+                                <p class="rank-subtitle">Advanced Features</p>
+                            </div>
+                        </div>
+                        <ul class="perk-list">
+                            <li class="perk-item">
+                                <div class="perk-icon">⚔️</div>
+                                <div class="perk-name">Elite Kit Access</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">💫</div>
+                                <div class="perk-name">Basic Particles</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">📦</div>
+                                <div class="perk-name">Extra Storage</div>
+                            </li>
+                        </ul>
+                        <div class="rank-price">$19.99</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="rank-section">
+                <h2>Lifesteal Server Ranks</h2>
+                <div class="rank-grid">
+                    <div class="rank-card legendary">
+                        <div class="rank-header">
+                            <div class="rank-icon">🔮</div>
+                            <div>
+                                <h3 class="rank-title">Immortal</h3>
+                                <p class="rank-subtitle">Supreme Lifesteal Powers</p>
+                            </div>
+                        </div>
+                        <ul class="perk-list">
+                            <li class="perk-item">
+                                <div class="perk-icon">❤️</div>
+                                <div class="perk-name">Max Hearts Boost</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">⚡</div>
+                                <div class="perk-name">Heart Transfer</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">🛡️</div>
+                                <div class="perk-name">Heart Protection</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">✨</div>
+                                <div class="perk-name">Custom Effects</div>
+                            </li>
+                        </ul>
+                        <div class="rank-price">$49.99</div>
+                    </div>
+
+                    <div class="rank-card epic">
+                        <div class="rank-header">
+                            <div class="rank-icon">💖</div>
+                            <div>
+                                <h3 class="rank-title">Revenant</h3>
+                                <p class="rank-subtitle">Advanced Life Powers</p>
+                            </div>
+                        </div>
+                        <ul class="perk-list">
+                            <li class="perk-item">
+                                <div class="perk-icon">❤️</div>
+                                <div class="perk-name">Heart Bonus</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">🔄</div>
+                                <div class="perk-name">Heart Recovery</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">🎁</div>
+                                <div class="perk-name">Daily Hearts</div>
+                            </li>
+                        </ul>
+                        <div class="rank-price">$29.99</div>
+                    </div>
+
+                    <div class="rank-card rare">
+                        <div class="rank-header">
+                            <div class="rank-icon">💝</div>
+                            <div>
+                                <h3 class="rank-title">Heartseeker</h3>
+                                <p class="rank-subtitle">Enhanced Life Features</p>
+                            </div>
+                        </div>
+                        <ul class="perk-list">
+                            <li class="perk-item">
+                                <div class="perk-icon">❤️</div>
+                                <div class="perk-name">Extra Hearts</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">🔋</div>
+                                <div class="perk-name">Heart Storage</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">📦</div>
+                                <div class="perk-name">Basic Perks</div>
+                            </li>
+                        </ul>
+                        <div class="rank-price">$19.99</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>Additional Information</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">🔄</div>
+                        <h3 class="info-title">Rank Upgrades</h3>
+                        <p class="info-text">Already have a rank? You can upgrade to a higher tier at any time and only pay the difference!</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">💰</div>
+                        <h3 class="info-title">Payment Methods</h3>
+                        <p class="info-text">We accept various payment methods including PayPal, credit cards, and other secure options.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🎮</div>
+                        <h3 class="info-title">Cross-Server</h3>
+                        <p class="info-text">Your rank benefits apply across all our game modes and servers!</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">❓</div>
+                        <h3 class="info-title">How to Purchase</h3>
+                        <p class="info-text">Visit our store, select your desired rank, and follow the checkout process. Your rank will be activated instantly after purchase.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">⏰</div>
+                        <h3 class="info-title">Duration</h3>
+                        <p class="info-text">All ranks are permanent and will not expire. Your benefits will remain active as long as you play on our server.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🔧</div>
+                        <h3 class="info-title">Support</h3>
+                        <p class="info-text">Need help with your rank? Our support team is available 24/7 to assist you with any issues.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Mobile Navigation Toggle -->
+    <button class="mobile-nav-toggle">☰</button>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

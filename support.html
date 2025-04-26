@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Fusion Network</title>
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/enhanced.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../assets/economy-pattern.png') repeat;
+            opacity: 0.1;
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            from { background-position: 0 0; }
+            to { background-position: -200px -200px; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #a0a0b8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-stat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-5px);
+        }
+
+        .hero-stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #4f46e5;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-stat-label {
+            color: #a0a0b8;
+            font-size: 0.9rem;
+        }
+
+        .support-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .support-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .support-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #4f46e5, #6366f1);
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .support-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .support-icon {
+            width: 48px;
+            height: 48px;
+            background: #f3f4f6;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .support-title {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .support-subtitle {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .support-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .support-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .support-item:last-child {
+            border-bottom: none;
+        }
+
+        .support-item-icon {
+            width: 24px;
+            height: 24px;
+            background: #f3f4f6;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+            font-size: 1rem;
+            flex-shrink: 0;
+            color: #4f46e5;
+        }
+
+        .support-item-content {
+            flex: 1;
+        }
+
+        .support-item-title {
+            font-weight: 500;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+
+        .support-item-text {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .faq-section {
+            margin-top: 2rem;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .faq-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .faq-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(45deg, #4f46e5, #6366f1);
+            color: white;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .contact-button svg {
+            margin-right: 0.5rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <a href="../index.html">
+                    <img src="../assets/fusion-logo.png" alt="Fusion Network Logo">
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Get Started</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="getting-started.html" class="nav-link">Getting Started</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="installation.html" class="nav-link">Installation</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Game Modes</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="lifesteal.html" class="nav-link">Lifesteal Economy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pvp.html" class="nav-link">PvP/FFA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="duels.html" class="nav-link">Duels</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="skyblock.html" class="nav-link">Skyblock (Coming Soon)</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Features</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="economy.html" class="nav-link">Economy System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="crates.html" class="nav-link">Crate System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ranks.html" class="nav-link">Ranks & Permissions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vote.html" class="nav-link">Voting System</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Community</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="rules.html" class="nav-link">Server Rules</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="support.html" class="nav-link active">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="staff.html" class="nav-link">Staff Applications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="credits.html" class="nav-link">Credits</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">24/7 Support Center</h1>
+                    <p class="hero-description">Get instant help and support for any issues you encounter. Our dedicated team is here to ensure you have the best gaming experience possible.</p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">24/7</div>
+                            <div class="hero-stat-label">Support Available</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">&lt;1h</div>
+                            <div class="hero-stat-label">Response Time</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">100%</div>
+                            <div class="hero-stat-label">Issue Resolution</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="support-section">
+                <h2>Contact Methods</h2>
+                <div class="support-grid">
+                    <div class="support-card">
+                        <div class="support-header">
+                            <div class="support-icon">💬</div>
+                            <div>
+                                <h3 class="support-title">Discord Support</h3>
+                                <p class="support-subtitle">Get instant help on Discord</p>
+                            </div>
+                        </div>
+                        <ul class="support-list">
+                            <li class="support-item">
+                                <div class="support-item-icon">⚡</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">24/7 Staff Assistance</div>
+                                    <div class="support-item-text">Our team is always ready to help</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">👥</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Community Help</div>
+                                    <div class="support-item-text">Get help from experienced players</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">🎯</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Quick Response</div>
+                                    <div class="support-item-text">Average response time under 1 hour</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">🎤</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Voice Support</div>
+                                    <div class="support-item-text">Direct voice chat assistance available</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="https://discord.gg/fusionnetwork" class="contact-button" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                            Join Discord
+                        </a>
+                    </div>
+
+                    <div class="support-card">
+                        <div class="support-header">
+                            <div class="support-icon">🎮</div>
+                            <div>
+                                <h3 class="support-title">In-Game Support</h3>
+                                <p class="support-subtitle">Get help while playing</p>
+                            </div>
+                        </div>
+                        <ul class="support-list">
+                            <li class="support-item">
+                                <div class="support-item-icon">📝</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">/help Command</div>
+                                    <div class="support-item-text">Access helpful commands and guides</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">💬</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Staff Chat</div>
+                                    <div class="support-item-text">Direct communication with staff</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">🚨</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Report System</div>
+                                    <div class="support-item-text">Report issues or players instantly</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">🎫</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Ticket System</div>
+                                    <div class="support-item-text">Create support tickets in-game</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="support-card">
+                        <div class="support-header">
+                            <div class="support-icon">🌐</div>
+                            <div>
+                                <h3 class="support-title">Website Support</h3>
+                                <p class="support-subtitle">Submit detailed tickets online</p>
+                            </div>
+                        </div>
+                        <ul class="support-list">
+                            <li class="support-item">
+                                <div class="support-item-icon">📋</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Detailed Reports</div>
+                                    <div class="support-item-text">Submit comprehensive issue reports</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">📎</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">File Attachments</div>
+                                    <div class="support-item-text">Upload screenshots and evidence</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">📊</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Status Tracking</div>
+                                    <div class="support-item-text">Monitor your ticket progress</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">📧</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Email Updates</div>
+                                    <div class="support-item-text">Receive notifications via email</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="https://support.fusionnetwork.com" class="contact-button" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg>
+                            Submit Ticket
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="support-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="support-grid">
+                    <div class="support-card">
+                        <div class="support-header">
+                            <div class="support-icon">❓</div>
+                            <div>
+                                <h3 class="support-title">General Questions</h3>
+                                <p class="support-subtitle">Common server inquiries</p>
+                            </div>
+                        </div>
+                        <ul class="support-list">
+                            <li class="support-item">
+                                <div class="support-item-icon">🎮</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">How do I join the server?</div>
+                                    <div class="support-item-text">Use the IP: play.fusionnetwork.com</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">📜</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Server Rules</div>
+                                    <div class="support-item-text">Check our rules page for guidelines</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">🎯</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Getting Started</div>
+                                    <div class="support-item-text">Visit our getting started guide</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">🎲</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Game Modes</div>
+                                    <div class="support-item-text">Explore our various game modes</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="support-card">
+                        <div class="support-header">
+                            <div class="support-icon">🔧</div>
+                            <div>
+                                <h3 class="support-title">Technical Support</h3>
+                                <p class="support-subtitle">Common technical issues</p>
+                            </div>
+                        </div>
+                        <ul class="support-list">
+                            <li class="support-item">
+                                <div class="support-item-icon">🌐</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Connection Issues</div>
+                                    <div class="support-item-text">Troubleshoot connection problems</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">⚡</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Performance</div>
+                                    <div class="support-item-text">Optimize game performance</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">🔄</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Client Issues</div>
+                                    <div class="support-item-text">Fix client compatibility problems</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">🔌</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Plugin Conflicts</div>
+                                    <div class="support-item-text">Resolve mod and plugin issues</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="support-card">
+                        <div class="support-header">
+                            <div class="support-icon">👤</div>
+                            <div>
+                                <h3 class="support-title">Account Support</h3>
+                                <p class="support-subtitle">Account-related assistance</p>
+                            </div>
+                        </div>
+                        <ul class="support-list">
+                            <li class="support-item">
+                                <div class="support-item-icon">📦</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Lost Items</div>
+                                    <div class="support-item-text">Recover lost items and progress</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">🔒</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Ban Appeals</div>
+                                    <div class="support-item-text">Submit and track ban appeals</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">👑</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Rank Issues</div>
+                                    <div class="support-item-text">Resolve rank and permission problems</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">💳</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Payment Support</div>
+                                    <div class="support-item-text">Help with purchases and payments</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="support-section">
+                <h2>Response Times</h2>
+                <div class="support-grid">
+                    <div class="support-card">
+                        <div class="support-header">
+                            <div class="support-icon">⚡</div>
+                            <div>
+                                <h3 class="support-title">Priority Support</h3>
+                                <p class="support-subtitle">Expected response times</p>
+                            </div>
+                        </div>
+                        <ul class="support-list">
+                            <li class="support-item">
+                                <div class="support-item-icon">💬</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Discord Support</div>
+                                    <div class="support-item-text">Response within 1-2 hours</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">🎮</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">In-Game Support</div>
+                                    <div class="support-item-text">Response within 15-30 minutes</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">🎫</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Support Tickets</div>
+                                    <div class="support-item-text">Response within 24-48 hours</div>
+                                </div>
+                            </li>
+                            <li class="support-item">
+                                <div class="support-item-icon">🚨</div>
+                                <div class="support-item-content">
+                                    <div class="support-item-title">Urgent Issues</div>
+                                    <div class="support-item-text">Immediate attention from staff</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <!-- Mobile Navigation Toggle -->
+    <button class="mobile-nav-toggle">☰</button>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Economy System - Trade and Earn on Fusion Network</title>
+    <meta name="description"
+        content="Explore our advanced Minecraft economy system. Create shops, trade with players, earn money, and build your wealth in our dynamic marketplace. Join thousands of active traders!">
+    <meta name="keywords"
+        content="Minecraft economy, server trading, Minecraft marketplace, player shops, Fusion Network economy, Minecraft money system">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Economy System - Fusion Network Minecraft Server">
+    <meta property="og:description"
+        content="Trade, earn, and build your wealth in our dynamic Minecraft economy. Create shops and trade with thousands of active players!">
+    <meta property="og:image" content="../assets/fusion-banner.jpg">
+    <meta property="og:url" content="https://fusionnetwork.com/pages/economy.html">
+    <meta property="og:type" content="article">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Economy System - Fusion Network Minecraft Server">
+    <meta name="twitter:description"
+        content="Trade, earn, and build your wealth in our dynamic Minecraft economy system.">
+    <meta name="twitter:image" content="../assets/fusion-banner.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://fusionnetwork.com/pages/economy.html">
+
+    <!-- Additional Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Fusion Network">
+    <meta name="theme-color" content="#4f46e5">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://fusionnetwork.com/pages/economy.html"
+        },
+        "headline": "Advanced Economy System on Fusion Network Minecraft Server",
+        "description": "Comprehensive guide to the economy system, trading, and marketplace on Fusion Network",
+        "image": "../assets/fusion-banner.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Fusion Network"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Fusion Network",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "../assets/fusion-logo.png"
+            }
+        },
+        "datePublished": "2024-01-01",
+        "dateModified": "2024-01-01",
+        "articleSection": "Game Features",
+        "about": {
+            "@type": "Thing",
+            "name": "Minecraft Economy System",
+            "description": "Virtual economy system in Minecraft multiplayer server"
+        },
+        "features": [
+            "Player shops",
+            "Dynamic marketplace",
+            "Custom trading system",
+            "Daily rewards",
+            "Economic events"
+        ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/enhanced.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../assets/economy-pattern.png') repeat;
+            opacity: 0.1;
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: -200px -200px;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #a0a0b8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #4f46e5;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #a0a0b8;
+            font-size: 0.9rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #4f46e5);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: #f3f4f6;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .command-card {
+            background: #1a1a2e;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .command-list {
+            background: #16213e;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .command-list code {
+            color: #a0a0b8;
+            display: block;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .command-list code:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .shop-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .shop-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .shop-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: #4f46e5;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .tip-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .tip-card h4 {
+            color: #4f46e5;
+            margin-bottom: 1rem;
+        }
+
+        .rule-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rule-list li {
+            position: relative;
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            line-height: 1.6;
+            color: #4b5563;
+        }
+
+        .rule-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #4f46e5;
+            font-weight: bold;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .hero-badge span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #4f46e5;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .shop-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .shop-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .shop-header-icon {
+            width: 48px;
+            height: 48px;
+            background: #f3f4f6;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .shop-header-content h2 {
+            margin: 0;
+            color: #1f2937;
+        }
+
+        .shop-header-content p {
+            color: #6b7280;
+            margin: 0.25rem 0 0 0;
+        }
+
+        .item-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .item-card {
+            background: #f9fafb;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .item-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-price {
+            color: #4f46e5;
+            font-weight: 500;
+        }
+
+        .coin-shop-special {
+            background: linear-gradient(45deg, #4f46e5, #9333ea);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <a href="../index.html">
+                    <img src="../assets/fusion-logo.png" alt="Fusion Network Logo">
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Get Started</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="getting-started.html" class="nav-link">Getting Started</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="installation.html" class="nav-link">Installation</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Game Modes</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="lifesteal.html" class="nav-link">Lifesteal Economy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pvp.html" class="nav-link">PvP/FFA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="duels.html" class="nav-link">Duels</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="skyblock.html" class="nav-link">Skyblock</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Features</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="economy.html" class="nav-link active">Economy System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="crates.html" class="nav-link">Crate System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ranks.html" class="nav-link">Ranks & Permissions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vote.html" class="nav-link">Voting System</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Community</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="rules.html" class="nav-link">Server Rules</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="support.html" class="nav-link">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="staff.html" class="nav-link">Staff Applications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="credits.html" class="nav-link">Credits</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Lifesteal Economy</h1>
+                    <p class="hero-description">Buy, sell, and grow your wealth through PvP-driven trading systems and
+                        exclusive in-game shops.</p>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">100K+</div>
+                            <div class="stat-label">Items Traded Daily</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">700+</div>
+                            <div class="stat-label">Active Traders</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Key Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏪</div>
+                        <h3>Lifesteal Shop</h3>
+                        <p>Sell farmed or looted items for money and buy essentials needed to thrive in PvP and
+                            survival.</p>
+                        <ul class="rule-list">
+                            <li>Buy and sell items using in-game currency</li>
+                            <li>Accessible shop interface for quick trades</li>
+                            <li>Supports farming, grinding, and loot-based gameplay</li>
+                            <li>Constantly updated item availability</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Coinshop</h3>
+                        <p>Use earned coins to unlock rare items, kits, and permissions from a custom-designed reward
+                            shop.</p>
+                        <ul class="rule-list">
+                            <li>Exchange coins for unique gear and upgrades</li>
+                            <li>Custom-made categories for special content</li>
+                            <li>Permissions and exclusive features available</li>
+                            <li>Earn coins through events and gameplay</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏦</div>
+                        <h3>Auction House</h3>
+                        <p>Buy and sell items with other players in a live, competitive market directly from the server
+                            interface.</p>
+                        <ul class="rule-list">
+                            <li>Post items for public sale or bidding</li>
+                            <li>Browse listings from players across the server</li>
+                            <li>Instant buy or timed auctions supported</li>
+                            <li>Fully automated and secure system</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="shop-section">
+                    <div class="shop-header">
+                        <div class="shop-header-icon">🏛️</div>
+                        <div class="shop-header-content">
+                            <h2>Server Shops</h2>
+                            <p>Buy essential items directly from official shops — stocked with everything a Lifesteal
+                                warrior needs to survive and thrive.</p>
+                        </div>
+                    </div>
+                    <div class="item-grid">
+                        <div class="item-card">
+                            <div class="item-icon">🌾</div>
+                            <div class="item-name">Farming Supplies</div>
+                            <div class="item-price">From $5</div>
+                        </div>
+                        <div class="item-card">
+                            <div class="item-icon">⚔️</div>
+                            <div class="item-name">PvP Gear</div>
+                            <div class="item-price">From $100</div>
+                        </div>
+                        <div class="item-card">
+                            <div class="item-icon">🏗️</div>
+                            <div class="item-name">Building Blocks</div>
+                            <div class="item-price">From $10</div>
+                        </div>
+                        <div class="item-card">
+                            <div class="item-icon">🔧</div>
+                            <div class="item-name">Survival Essentials</div>
+                            <div class="item-price">From $50</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="shop-section">
+                    <div class="shop-header">
+                        <div class="shop-header-icon">💰</div>
+                        <div class="shop-header-content">
+                            <h2>Coin Shops</h2>
+                            <p>Exchange your hard-earned coins for exclusive items and perks</p>
+                        </div>
+                    </div>
+                    <div class="item-grid">
+                        <div class="item-card">
+                            <div class="item-icon">👑</div>
+                            <div class="item-name">VIP Ranks</div>
+                            <!-- <div class="item-price">50,000 coins</div> -->
+                            <div class="coin-shop-special">Premium</div>
+                        </div>
+                        <div class="item-card">
+                            <div class="item-icon">🎭</div>
+                            <div class="item-name">Custom Tags</div>
+                            <!-- <div class="item-price">25,000 coins</div> -->
+                            <div class="coin-shop-special">Cosmetic</div>
+                        </div>
+                        <div class="item-card">
+                            <div class="item-icon">🎁</div>
+                            <div class="item-name">Custom Permissions</div>
+                            <!-- <div class="item-price">10,000 coins</div> -->
+                            <div class="coin-shop-special">Legendary</div>
+                        </div>
+                        <div class="item-card">
+                            <div class="item-icon">🔮</div>
+                            <div class="item-name">Special Effects</div>
+                            <!-- <div class="item-price">15,000 coins</div> -->
+                            <div class="coin-shop-special">Visual</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shop-section">
+                    <div class="shop-header">
+                        <div class="shop-header-icon">🏪</div>
+                        <div class="shop-header-content">
+                            <h2>Server Shop & Features</h2>
+                            <p>Explore our variety of shops and custom features to enhance your gameplay experience.</p>
+                        </div>
+                    </div>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🛒</div>
+                            <h3>Server Shop</h3>
+                            <ul class="rule-list">
+                                <li>Browse a wide range of items at fixed prices</li>
+                                <li>Easy access to essential materials and tools</li>
+                                <li>Regular updates with new items</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💰</div>
+                            <h3>Coinshop</h3>
+                            <ul class="rule-list">
+                                <li>Use in-game currency to buy exclusive items</li>
+                                <li>Special deals and limited-time offers</li>
+                                <li>Unique cosmetics, pets, and more!</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🏠</div>
+                            <h3>Auction House</h3>
+                            <ul class="rule-list">
+                                <li>Bid on items from other players</li>
+                                <li>Sell your own items to the highest bidder</li>
+                                <li>Dynamic and competitive pricing</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">✨</div>
+                            <h3>Custom Features</h3>
+                            <ul class="rule-list">
+                                <li>Enchantments for added abilities</li>
+                                <li>Custom item attributes</li>
+                                <li>Exclusive crafting options</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Essential Commands</h2>
+                <div class="command-card">
+                    <div class="command-list">
+                        <code>/balance - Check your current balance</code>
+                        <code>/pay [player] [amount] - Send money to another player</code>
+                        <code>/shop create [name] - Create a new shop</code>
+                        <code>/market list [item] [price] - List item on market</code>
+                        <code>/bank deposit [amount] - Deposit money in bank</code>
+                        <code>/bank withdraw [amount] - Withdraw money from bank</code>
+                        <code>/prices check [item] - Check current market prices</code>
+                        <code>/trade [player] - Initiate secure trade with player</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- <section class="content-section">
+                <h2>Trading Tips</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h4>Market Analysis</h4>
+                        <ul class="rule-list">
+                            <li>Monitor price trends regularly</li>
+                            <li>Buy low, sell high</li>
+                            <li>Track demand patterns</li>
+                            <li>Research before investing</li>
+                        </ul>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Shop Management</h4>
+                        <ul class="rule-list">
+                            <li>Keep stock levels consistent</li>
+                            <li>Price competitively</li>
+                            <li>Advertise your shop</li>
+                            <li>Maintain good reputation</li>
+                        </ul>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Wealth Building</h4>
+                        <ul class="rule-list">
+                            <li>Diversify investments</li>
+                            <li>Save regularly</li>
+                            <li>Use bank interest</li>
+                            <li>Plan long-term goals</li>
+                        </ul>
+                    </div>
+                </div>
+            </section> -->
+        </main>
+    </div>
+
+    <!-- Mobile Navigation Toggle -->
+    <button class="mobile-nav-toggle">☰</button>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

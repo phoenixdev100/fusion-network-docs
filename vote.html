@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote - Fusion Network</title>
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/enhanced.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 3rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../assets/economy-pattern.png') repeat;
+            opacity: 0.1;
+            animation: slideBackground 20s linear infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4f46e5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #a0a0b8;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-stat {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #4f46e5;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #a0a0b8;
+            font-size: 0.875rem;
+        }
+
+        .vote-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .vote-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vote-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .vote-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4f46e5, #ff6b6b);
+        }
+
+        .vote-platform {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+
+        .vote-description {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .vote-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background: #4f46e5;
+            color: white;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .vote-button:hover {
+            background: #4338ca;
+            transform: translateY(-2px);
+        }
+
+        .rewards-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .reward-item {
+            background: #f3f4f6;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .reward-item:hover {
+            transform: translateY(-3px);
+            background: #e5e7eb;
+        }
+
+        .reward-title {
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+
+        .reward-description {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        .info-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-card {
+            background: #f3f4f6;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+            background: #e5e7eb;
+        }
+
+        .info-title {
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-description {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        @keyframes slideBackground {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 100% 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <a href="../index.html">
+                    <img src="../assets/fusion-logo.png" alt="Fusion Network Logo">
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Get Started</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="getting-started.html" class="nav-link">Getting Started</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="installation.html" class="nav-link">Installation</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Game Modes</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="lifesteal.html" class="nav-link">Lifesteal Economy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pvp.html" class="nav-link">PvP/FFA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="duels.html" class="nav-link">Duels</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="skyblock.html" class="nav-link">Skyblock (Coming Soon)</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Features</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="economy.html" class="nav-link">Economy System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="crates.html" class="nav-link">Crate System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ranks.html" class="nav-link">Ranks & Permissions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vote.html" class="nav-link active">Voting System</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Community</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="rules.html" class="nav-link">Server Rules</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="support.html" class="nav-link">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="staff.html" class="nav-link">Staff Applications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="credits.html" class="nav-link">Credits</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Vote & Earn Rewards</h1>
+                    <p class="hero-description">Support our server by voting daily and earn amazing rewards! Each vote helps us grow and gives you access to exclusive perks and in-game items.</p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="stat-number">24h</div>
+                            <div class="stat-label">Vote Cooldown</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="stat-number">3x</div>
+                            <div class="stat-label">Daily Vote Sites</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Monthly Voters</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Vote Links</h2>
+                <div class="vote-cards">
+                    <div class="vote-card">
+                        <h3 class="vote-platform">TopMinecraftServers</h3>
+                        <p class="vote-description">Vote on TopMinecraftServers to receive exclusive rewards and help us climb the rankings!</p>
+                        <a href="https://topminecraftservers.org/server/38274" class="vote-button" target="_blank">Vote Now →</a>
+                    </div>
+                    <div class="vote-card">
+                        <h3 class="vote-platform">Minecraft Server List</h3>
+                        <p class="vote-description">Support us on Minecraft Server List and get amazing in-game rewards!</p>
+                        <a href="https://minecraft-server-list.com/server/508768/" class="vote-button" target="_blank">Vote Now →</a>
+                    </div>
+                    <div class="vote-card">
+                        <h3 class="vote-platform">Minecraft-MP</h3>
+                        <p class="vote-description">Vote on Minecraft-MP for additional rewards and help us reach more players!</p>
+                        <a href="https://minecraft-mp.com/server-s338558" class="vote-button" target="_blank">Vote Now →</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="rewards-section">
+                <h2>Vote Rewards</h2>
+                <div class="rewards-grid">
+                    <div class="reward-item">
+                        <h3 class="reward-title">Daily Rewards</h3>
+                        <p class="reward-description">
+                            • 1000 Coins per vote<br>
+                            • 1 Vote Key per vote<br>
+                            • Random Crate Key<br>
+                            • 2 hours of 2x XP Boost
+                        </p>
+                    </div>
+                    <div class="reward-item">
+                        <h3 class="reward-title">Weekly Bonuses</h3>
+                        <p class="reward-description">
+                            • Exclusive Weekly Crate Key<br>
+                            • 5000 Bonus Coins<br>
+                            • Special Discord Role<br>
+                            • 24 hours of Premium Status
+                        </p>
+                    </div>
+                    <div class="reward-item">
+                        <h3 class="reward-title">Monthly Rewards</h3>
+                        <p class="reward-description">
+                            • Exclusive Monthly Crate<br>
+                            • 25000 Bonus Coins<br>
+                            • Limited Edition Cosmetics<br>
+                            • Top Voter Tag
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>How to Vote</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3 class="info-title">1. Choose a Platform</h3>
+                        <p class="info-description">Click on any of the vote links above to visit our server listing on that platform.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-title">2. Enter Your Username</h3>
+                        <p class="info-description">Type in your Minecraft username exactly as it appears in-game to receive your rewards.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-title">3. Complete Verification</h3>
+                        <p class="info-description">Follow the verification steps on the voting platform to confirm your vote.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-title">4. Claim Rewards</h3>
+                        <p class="info-description">Join the server and type /vote claim to receive your rewards instantly!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Mobile Navigation Toggle -->
+    <button class="mobile-nav-toggle">☰</button>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
+</body>
+</html> 

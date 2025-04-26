@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crate System - Fusion Network</title>
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/enhanced.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../assets/economy-pattern.png') repeat;
+            opacity: 0.1;
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            from { background-position: 0 0; }
+            to { background-position: -200px -200px; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #a0a0b8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-stat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-5px);
+        }
+
+        .hero-stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #4f46e5;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-stat-label {
+            color: #a0a0b8;
+            font-size: 0.9rem;
+        }
+
+        .info-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-card {
+            background: #f9fafb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: #f3f4f6;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-text {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .crate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .crate-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .crate-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+        }
+
+        .legendary-crate::before { background: linear-gradient(45deg, #ffd700, #ff6b6b); }
+        .epic-crate::before { background: linear-gradient(45deg, #9333ea, #4f46e5); }
+        .rare-crate::before { background: linear-gradient(45deg, #3b82f6, #06b6d4); }
+        .uncommon-crate::before { background: linear-gradient(45deg, #10b981, #34d399); }
+        .common-crate::before { background: linear-gradient(45deg, #6b7280, #9ca3af); }
+
+        .crate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .crate-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .crate-icon {
+            width: 48px;
+            height: 48px;
+            background: #f3f4f6;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .crate-title {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .crate-subtitle {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .reward-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .reward-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .reward-item:last-child {
+            border-bottom: none;
+        }
+
+        .reward-icon {
+            width: 24px;
+            height: 24px;
+            background: #f3f4f6;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .reward-details {
+            flex: 1;
+        }
+
+        .reward-name {
+            font-weight: 500;
+            color: #1f2937;
+        }
+
+        .reward-chance {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .crate-footer {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .key-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .key-price {
+            font-weight: 600;
+            color: #4f46e5;
+        }
+
+        .command-card {
+            background: #1a1a2e;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .command-list {
+            background: #16213e;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .command-list code {
+            color: #a0a0b8;
+            display: block;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .command-list code:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <a href="../index.html">
+                    <img src="../assets/fusion-logo.png" alt="Fusion Network Logo">
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Get Started</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="getting-started.html" class="nav-link">Getting Started</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="installation.html" class="nav-link">Installation</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Game Modes</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="lifesteal.html" class="nav-link">Lifesteal Economy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pvp.html" class="nav-link">PvP/FFA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="duels.html" class="nav-link">Duels</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="skyblock.html" class="nav-link">Skyblock</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Features</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="economy.html" class="nav-link">Economy System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="crates.html" class="nav-link active">Crate System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ranks.html" class="nav-link">Ranks & Permissions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vote.html" class="nav-link">Voting System</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Community</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="rules.html" class="nav-link">Server Rules</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="support.html" class="nav-link">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="staff.html" class="nav-link">Staff Applications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="credits.html" class="nav-link">Credits</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Crate System</h1>
+                    <p class="hero-description">Discover a world of exclusive rewards through our advanced crate system. From common treasures to legendary artifacts, every crate opening is an adventure.</p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">5</div>
+                            <div class="hero-stat-label">Unique Crates</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">50+</div>
+                            <div class="hero-stat-label">Rare Items</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">100%</div>
+                            <div class="hero-stat-label">Drop Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>How to Get Started</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">🎮</div>
+                        <h3 class="info-title">Daily Voting</h3>
+                        <p class="info-text">Vote for our server daily to receive free crate keys. The more consecutive days you vote, the better your rewards!</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">💎</div>
+                        <h3 class="info-title">In-Game Purchase</h3>
+                        <p class="info-text">Buy crate keys using in-game currency. Each crate tier has its own key with unique rewards.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🎯</div>
+                        <h3 class="info-title">Special Events</h3>
+                        <p class="info-text">Participate in server events to win exclusive crate keys and special limited-time crates.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="crate-grid">
+                    <div class="crate-card legendary-crate">
+                        <div class="crate-header">
+                            <div class="crate-icon">👑</div>
+                            <div>
+                                <h3 class="crate-title">Legendary Crate</h3>
+                                <p class="crate-subtitle">The most prestigious rewards</p>
+                            </div>
+                        </div>
+                        <ul class="reward-list">
+                            <li class="reward-item">
+                                <div class="reward-icon">⚔️</div>
+                                <div class="reward-details">
+                                    <div class="reward-name">Mythic Weapons</div>
+                                    <div class="reward-chance">10% chance</div>
+                                </div>
+                            </li>
+                            <li class="reward-item">
+                                <div class="reward-icon">🌟</div>
+                                <div class="reward-details">
+                                    <div class="reward-name">Special Ranks</div>
+                                    <div class="reward-chance">5% chance</div>
+                                </div>
+                            </li>
+                            <li class="reward-item">
+                                <div class="reward-icon">💎</div>
+                                <div class="reward-details">
+                                    <div class="reward-name">Rare Resources</div>
+                                    <div class="reward-chance">15% chance</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="crate-footer">
+                            <div class="key-info">
+                                <span>Key Price:</span>
+                                <span class="key-price">$50,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="crate-card epic-crate">
+                        <div class="crate-header">
+                            <div class="crate-icon">✨</div>
+                            <div>
+                                <h3 class="crate-title">Epic Crate</h3>
+                                <p class="crate-subtitle">High-tier rewards await</p>
+                            </div>
+                        </div>
+                        <ul class="reward-list">
+                            <li class="reward-item">
+                                <div class="reward-icon">🗡️</div>
+                                <div class="reward-details">
+                                    <div class="reward-name">Epic Weapons</div>
+                                    <div class="reward-chance">15% chance</div>
+                                </div>
+                            </li>
+                            <li class="reward-item">
+                                <div class="reward-icon">🎭</div>
+                                <div class="reward-details">
+                                    <div class="reward-name">Custom Tags</div>
+                                    <div class="reward-chance">10% chance</div>
+                                </div>
+                            </li>
+                            <li class="reward-item">
+                                <div class="reward-icon">🔮</div>
+                                <div class="reward-details">
+                                    <div class="reward-name">Special Effects</div>
+                                    <div class="reward-chance">20% chance</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="crate-footer">
+                            <div class="key-info">
+                                <span>Key Price:</span>
+                                <span class="key-price">$25,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="crate-card rare-crate">
+                        <div class="crate-header">
+                            <div class="crate-icon">💫</div>
+                            <div>
+                                <h3 class="crate-title">Rare Crate</h3>
+                                <p class="crate-subtitle">Valuable rewards inside</p>
+                            </div>
+                        </div>
+                        <ul class="reward-list">
+                            <li class="reward-item">
+                                <div class="reward-icon">⚔️</div>
+                                <div class="reward-details">
+                                    <div class="reward-name">Rare Weapons</div>
+                                    <div class="reward-chance">20% chance</div>
+                                </div>
+                            </li>
+                            <li class="reward-item">
+                                <div class="reward-icon">💰</div>
+                                <div class="reward-details">
+                                    <div class="reward-name">Money Rewards</div>
+                                    <div class="reward-chance">25% chance</div>
+                                </div>
+                            </li>
+                            <li class="reward-item">
+                                <div class="reward-icon">🎨</div>
+                                <div class="reward-details">
+                                    <div class="reward-name">Cosmetics</div>
+                                    <div class="reward-chance">30% chance</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="crate-footer">
+                            <div class="key-info">
+                                <span>Key Price:</span>
+                                <span class="key-price">$15,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="crate-card uncommon-crate">
+                        <div class="crate-header">
+                            <div class="crate-icon">🌟</div>
+                            <div>
+                                <h3 class="crate-title">Uncommon Crate</h3>
+                                <p class="crate-subtitle">Good rewards guaranteed</p>
+                            </div>
+                        </div>
+                        <ul class="reward-list">
+                            <li class="reward-item">
+                                <div class="reward-icon">⚔️</div>
+                                <div class="reward-details">
+                                    <div class="reward-name">Basic Weapons</div>
+                                    <div class="reward-chance">30% chance</div>
+                                </div>
+                            </li>
+                            <li class="reward-item">
+                                <div class="reward-icon">🛡️</div>
+                                <div class="reward-details">
+                                    <div class="reward-name">Basic Armor</div>
+                                    <div class="reward-chance">35% chance</div>
+                                </div>
+                            </li>
+                            <li class="reward-item">
+                                <div class="reward-icon">💎</div>
+                                <div class="reward-details">
+                                    <div class="reward-name">Resources</div>
+                                    <div class="reward-chance">40% chance</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="crate-footer">
+                            <div class="key-info">
+                                <span>Key Price:</span>
+                                <span class="key-price">$7,500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="crate-card common-crate">
+                        <div class="crate-header">
+                            <div class="crate-icon">📦</div>
+                            <div>
+                                <h3 class="crate-title">Common Crate</h3>
+                                <p class="crate-subtitle">Start your collection</p>
+                            </div>
+                        </div>
+                        <ul class="reward-list">
+                            <li class="reward-item">
+                                <div class="reward-icon">🗡️</div>
+                                <div class="reward-details">
+                                    <div class="reward-name">Common Items</div>
+                                    <div class="reward-chance">40% chance</div>
+                                </div>
+                            </li>
+                            <li class="reward-item">
+                                <div class="reward-icon">💰</div>
+                                <div class="reward-details">
+                                    <div class="reward-name">Small Money Rewards</div>
+                                    <div class="reward-chance">45% chance</div>
+                                </div>
+                            </li>
+                            <li class="reward-item">
+                                <div class="reward-icon">📦</div>
+                                <div class="reward-details">
+                                    <div class="reward-name">Basic Resources</div>
+                                    <div class="reward-chance">50% chance</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="crate-footer">
+                            <div class="key-info">
+                                <span>Key Price:</span>
+                                <span class="key-price">$2,500</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>Tips & Tricks</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">📈</div>
+                        <h3 class="info-title">Best Value</h3>
+                        <p class="info-text">Start with Common Crates to build your inventory, then gradually work your way up to Legendary Crates for the best rewards.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🎁</div>
+                        <h3 class="info-title">Preview First</h3>
+                        <p class="info-text">Always preview crate contents before opening to understand potential rewards and make informed decisions.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">⏰</div>
+                        <h3 class="info-title">Special Events</h3>
+                        <p class="info-text">Keep an eye on special events and promotions where crate drop rates are boosted or special items are added.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>Rules & Guidelines</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">⚖️</div>
+                        <h3 class="info-title">Trading Rules</h3>
+                        <p class="info-text">Crate keys and rewards can be traded between players, but real-money trading is strictly prohibited.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🛡️</div>
+                        <h3 class="info-title">Fair Play</h3>
+                        <p class="info-text">Exploiting crate mechanics or using third-party tools to manipulate drops will result in account penalties.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">📢</div>
+                        <h3 class="info-title">Support</h3>
+                        <p class="info-text">If you encounter any issues with crates or rewards, contact our support team immediately for assistance.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Mobile Navigation Toggle -->
+    <button class="mobile-nav-toggle">☰</button>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

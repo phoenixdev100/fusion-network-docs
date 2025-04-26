@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Getting Started Guide - Fusion Network Minecraft Server</title>
+    <meta name="description" content="Complete beginner's guide to Fusion Network. Learn essential commands, game modes, and tips to start your journey on our Minecraft server. Perfect for new players!">
+    <meta name="keywords" content="Minecraft beginner guide, Fusion Network tutorial, Minecraft server guide, how to play Minecraft multiplayer, Minecraft commands">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Getting Started - Fusion Network Minecraft Server">
+    <meta property="og:description" content="Start your journey on Fusion Network! Complete beginner's guide with essential commands, game modes, and tips for new players.">
+    <meta property="og:image" content="../assets/fusion-banner.jpg">
+    <meta property="og:url" content="https://fusionnetwork.com/pages/getting-started.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Getting Started - Fusion Network Minecraft Server">
+    <meta name="twitter:description" content="Start your journey on Fusion Network! Complete beginner's guide with essential commands and tips.">
+    <meta name="twitter:image" content="../assets/fusion-banner.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://fusionnetwork.com/pages/getting-started.html">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Fusion Network">
+    <meta name="theme-color" content="#4f46e5">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://fusionnetwork.com/pages/getting-started.html"
+        },
+        "headline": "Getting Started Guide for Fusion Network Minecraft Server",
+        "description": "Complete beginner's guide to playing on Fusion Network Minecraft server",
+        "image": "../assets/fusion-banner.png",
+        "author": {
+            "@type": "Organization",
+            "name": "Fusion Network"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Fusion Network",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "../assets/fusion-logo.png"
+            }
+        },
+        "datePublished": "2024-01-01",
+        "dateModified": "2024-01-01",
+        "articleSection": "Gaming Guide",
+        "articleBody": "Everything you need to know to begin your adventure on Fusion Network. Follow our comprehensive guide to get started in minutes."
+    }
+    </script>
+
+    <!-- Existing Stylesheets -->
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/enhanced.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Accordion Styles */
+        .accordion-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .accordion-item h4 {
+            margin: 0;
+            padding: 1rem;
+            background: #f9fafb;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1rem;
+            color: #111827;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item h4::after {
+            content: '+';
+            font-size: 1.25rem;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active h4 {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .accordion-item.active h4::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            padding: 0 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 1000px;
+            padding: 1rem;
+        }
+
+        .accordion-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .accordion-content ul li {
+            position: relative;
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            line-height: 1.5;
+            color: #4b5563;
+        }
+
+        .accordion-content ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #4f46e5;
+            font-weight: bold;
+        }
+
+        .accordion-content ul li code {
+            background: #f3f4f6;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #4f46e5;
+        }
+
+        .solution-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .solution-list > li {
+            margin-bottom: 1rem;
+        }
+
+        .solution-list ul {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .issue-description {
+            margin-bottom: 1rem;
+            color: #4b5563;
+        }
+
+        .support-channels {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .support-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            background: linear-gradient(135deg, #5865F2 0%, #404EED 100%);
+            color: #fff;
+            border: none;
+        }
+
+        .support-btn.email {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+        }
+
+        .support-btn:hover {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <a href="../index.html">
+                    <img src="../assets/fusion-logo.png" alt="Fusion Network Logo">
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Get Started</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="getting-started.html" class="nav-link active">Getting Started</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="installation.html" class="nav-link">Installation</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Game Modes</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="lifesteal.html" class="nav-link">Lifesteal Economy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pvp.html" class="nav-link">PvP/FFA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="duels.html" class="nav-link">Duels</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="skyblock.html" class="nav-link">Skyblock (Coming Soon)</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Features</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="economy.html" class="nav-link">Economy System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="crates.html" class="nav-link">Crate System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ranks.html" class="nav-link">Ranks & Permissions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vote.html" class="nav-link">Voting System</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Community</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="rules.html" class="nav-link">Server Rules</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="support.html" class="nav-link">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="staff.html" class="nav-link">Staff Applications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="credits.html" class="nav-link">Credits</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Start Your Journey</h1>
+                    <p class="hero-description">Everything you need to know to begin your adventure on Fusion Network. Follow our comprehensive guide to get started in minutes.</p>
+                    <div class="hero-actions">
+                        <a href="#quick-setup" class="quick-join">Quick Setup Guide →</a>
+                        <div class="server-status">
+                            <span class="status-indicator"></span>
+                            <span>Checking server status...</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="quick-setup">
+                <h2>Quick Setup Guide</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">1.12-1.21</div>
+                        <div class="stat-label">Supported Versions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Server Uptime</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Global</div>
+                        <div class="stat-label">Server Location</div>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Connection Details</h3>
+                    <div class="connection-info">
+                        <div class="info-item">
+                            <strong>Server IP:</strong>
+                            <code class="copyable">fusion-network.xyz</code>
+                        </div>
+                        <div class="info-item">
+                            <strong>Alternative IP:</strong>
+                            <code class="copyable">as.fusion-network.xyz</code>
+                        </div>
+                        <div class="info-item">
+                            <strong>Port:</strong>
+                            <code>25565</code> (Default)
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="game-requirements">
+                <h2>Game Requirements</h2>
+                <div class="grid-container">
+                    <div class="feature-card">
+                        <h3>Minecraft Java Edition</h3>
+                        <p>Our server supports multiple versions for maximum compatibility.</p>
+                        <ul class="feature-list">
+                            <li>✓ Version 1.12 to 1.21</li>
+                            <li>✓ Premium or Cracked accounts</li>
+                            <li>✓ Any official launcher</li>
+                            <li>✓ Stable internet connection</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Recommended Launchers</h3>
+                        <p>Choose your preferred launcher for the best experience.</p>
+                        <ul class="feature-list">
+                            <li>✓ Official Minecraft Launcher</li>
+                            <li>✓ Lunar Client</li>
+                            <li>✓ Badlion Client</li>
+                            <li>✓ TLauncher (for cracked)</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Allowed Modifications</h3>
+                        <p>Enhance your gameplay with approved modifications.</p>
+                        <ul class="feature-list">
+                            <li>✓ Optifine</li>
+                            <li>✓ Performance mods</li>
+                            <li>✓ Texture packs</li>
+                            <li>✓ Shader packs</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="connection-guide">
+                <h2>Connection Guide</h2>
+                <div class="grid-container">
+                    <div class="feature-card">
+                        <h3>Step 1: Launch Minecraft</h3>
+                        <p>Start your Minecraft launcher and ensure you're using a supported version (1.12-1.21).</p>
+                        <!-- <div class="step-image">
+                            <img src="../assets/launcher.png" alt="Minecraft Launcher">
+                        </div> -->
+                    </div>
+                    <div class="feature-card">
+                        <h3>Step 2: Add Server</h3>
+                        <p>Click "Multiplayer" → "Add Server" and enter our server details.</p>
+                        <div class="connection-steps">
+                            <ol>
+                                <li>Server Name: <code>Fusion Network</code></li>
+                                <li>Server Address: <code>fusion-network.xyz</code></li>
+                                <li>Click "Done" to save</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Step 3: Join & Play</h3>
+                        <p>Select Fusion Network from your server list and click "Join Server".</p>
+                        <!-- <a href="#first-time-guide" class="card-link">First Time Player Guide →</a> -->
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="troubleshooting">
+                <h2>Troubleshooting</h2>
+                <div class="grid-container">
+                    <div class="feature-card">
+                        <h3>Common Issues</h3>
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <h4>Connection Failed</h4>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li>Try our alternative IP: <code>as.fusion-network.xyz</code></li>
+                                        <li>Check your internet connection</li>
+                                        <li>Verify your game version</li>
+                                        <li>Disable VPN if using one</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h4>Version Mismatch</h4>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li>Use any version between 1.12 and 1.21</li>
+                                        <li>Recommended: Version 1.21</li>
+                                        <li>Check launcher settings</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Need Help?</h3>
+                        <p>Our support team is available 24/7 to assist you with any issues.</p>
+                        <div class="support-channels">
+                            <a href="https://discord.gg/wk6yJGHkKP" class="support-btn discord" target="_blank">
+                                💬 Join Discord Support
+                            </a>
+                            <a href="mailto:support@fusion-network.xyz" class="support-btn email">
+                                ✉️ Email Support
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="next-steps">
+                <h2>Next Steps</h2>
+                <div class="grid-container">
+                    <a href="economy.html" class="feature-card">
+                        <h3>Economy System</h3>
+                        <p>Learn about our unique economy system and start earning.</p>
+                        <span class="card-link">Explore Economy →</span>
+                    </a>
+                    <a href="ranks.html" class="feature-card">
+                        <h3>Ranks & Perks</h3>
+                        <p>Discover available ranks and their exclusive benefits.</p>
+                        <span class="card-link">View Ranks →</span>
+                    </a>
+                    <a href="rules.html" class="feature-card">
+                        <h3>Server Rules</h3>
+                        <p>Read our community guidelines to ensure fair play.</p>
+                        <span class="card-link">Read Rules →</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+    <!-- Mobile Navigation Toggle -->
+    <button class="mobile-nav-toggle">☰</button>
+
+
+    <script src="../js/main.js"></script>
+    <script src="../js/server-status.js"></script>
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.accordion-item h4').forEach(header => {
+            header.addEventListener('click', () => {
+                const accordionItem = header.parentElement;
+                const isActive = accordionItem.classList.contains('active');
+                
+                // Close all accordion items
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // If the clicked item wasn't active, open it
+                if (!isActive) {
+                    accordionItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

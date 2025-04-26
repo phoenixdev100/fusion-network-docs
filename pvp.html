@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PvP/FFA - Fusion Network</title>
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/enhanced.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #a0a0b8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #4f46e5;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #a0a0b8;
+            font-size: 0.9rem;
+        }
+
+        .kit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .kit-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .kit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #4f46e5);
+        }
+
+        .kit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .kit-icon {
+            width: 48px;
+            height: 48px;
+            background: #f3f4f6;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .arena-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .arena-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .arena-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .arena-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .rank-tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .rank-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .rank-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .rank-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .command-card {
+            background: #1a1a2e;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .command-list {
+            background: #16213e;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .command-list code {
+            color: #a0a0b8;
+            display: block;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .command-list code:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .accordion {
+            margin-top: 1rem;
+        }
+
+        .accordion-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .accordion-item h4 {
+            margin: 0;
+            padding: 1rem 1.5rem;
+            background: #f9fafb;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            color: #111827;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item h4::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 400;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active h4 {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .accordion-item.active h4::after {
+            content: '−';
+        }
+
+        .accordion-content {
+            max-height: 0;
+            padding: 0 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 1000px;
+            padding: 1.5rem;
+        }
+
+        .rule-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rule-list li {
+            position: relative;
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            line-height: 1.6;
+            color: #4b5563;
+        }
+
+        .rule-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #4f46e5;
+            font-weight: bold;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <a href="../index.html">
+                    <img src="../assets/fusion-logo.png" alt="Fusion Network Logo">
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Get Started</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="getting-started.html" class="nav-link">Getting Started</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="installation.html" class="nav-link">Installation</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Game Modes</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="lifesteal.html" class="nav-link">Lifesteal Economy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pvp.html" class="nav-link active">PvP/FFA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="duels.html" class="nav-link">Duels</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="skyblock.html" class="nav-link">Skyblock (Coming Soon)</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Features</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="economy.html" class="nav-link">Economy System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="crates.html" class="nav-link">Crate System</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ranks.html" class="nav-link">Ranks & Permissions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vote.html" class="nav-link">Voting System</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Community</h3>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="rules.html" class="nav-link">Server Rules</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="support.html" class="nav-link">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="staff.html" class="nav-link">Staff Applications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="credits.html" class="nav-link">Credits</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">PvP Arena</h1>
+                    <p class="hero-description">Enter the arena, choose your kit, and prove your combat skills. Battle in ranked matches, climb the leaderboards, and earn exclusive rewards.</p>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Unique Arenas</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">6</div>
+                            <div class="stat-label">Custom Kits</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">5K</div>
+                            <div class="stat-label">Daily Players</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">$10K</div>
+                            <div class="stat-label">Prize Pool</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Battle Kits</h2>
+                <div class="kit-grid">
+                    <div class="kit-card">
+                        <div class="kit-icon">⚔️</div>
+                        <h3>Diamond Warrior</h3>
+                        <p>Master the art of close combat with enhanced protection and powerful strikes.</p>
+                        <ul class="rule-list">
+                            <li>Diamond Sword (Sharpness V)</li>
+                            <li>Full Diamond Armor (Protection IV)</li>
+                            <li>Golden Apples (x8)</li>
+                            <li>Strength II Potions (x3)</li>
+                            <li>Instant Health II (x3)</li>
+                        </ul>
+                    </div>
+                    <div class="kit-card">
+                        <div class="kit-icon">🏹</div>
+                        <h3>Elite Archer</h3>
+                        <p>Strike from a distance with powerful bow shots and tactical mobility.</p>
+                        <ul class="rule-list">
+                            <li>Power V Bow (Infinity)</li>
+                            <li>Leather Armor (Projectile Protection IV)</li>
+                            <li>Spectral Arrows (x64)</li>
+                            <li>Speed II Potions (x4)</li>
+                            <li>Invisibility Potions (x2)</li>
+                        </ul>
+                    </div>
+                    <div class="kit-card">
+                        <div class="kit-icon">🛡️</div>
+                        <h3>Tank Commander</h3>
+                        <p>Outlast your opponents with superior defense and regeneration abilities.</p>
+                        <ul class="rule-list">
+                            <li>Iron Sword (Unbreaking III)</li>
+                            <li>Full Iron Armor (Protection III)</li>
+                            <li>Shield (Unbreaking III)</li>
+                            <li>Regeneration II Potions (x4)</li>
+                            <li>Resistance Potions (x3)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Combat Arenas</h2>
+                <div class="arena-grid">
+                    <div class="arena-card">
+                        <h3>Colosseum</h3>
+                        <p>A massive circular arena with multiple levels and strategic positions. Perfect for large-scale battles and tournaments.</p>
+                        <ul class="rule-list">
+                            <li>Supports up to 32 players</li>
+                            <li>Dynamic environment hazards</li>
+                            <li>Multiple power-up locations</li>
+                            <li>Spectator viewing areas</li>
+                        </ul>
+                    </div>
+                    <div class="arena-card">
+                        <h3>Duel Arena</h3>
+                        <p>An intimate 1v1 arena designed for intense personal battles and skill demonstrations.</p>
+                        <ul class="rule-list">
+                            <li>Perfect for 1v1 matches</li>
+                            <li>No environmental hazards</li>
+                            <li>Clear visibility</li>
+                            <li>Fair spawn points</li>
+                        </ul>
+                    </div>
+                    <div class="arena-card">
+                        <h3>Chaos Grounds</h3>
+                        <p>A dynamic arena with changing environments and random events. Expect the unexpected!</p>
+                        <ul class="rule-list">
+                            <li>Random events every minute</li>
+                            <li>Changing terrain</li>
+                            <li>Special power-ups</li>
+                            <li>Environmental challenges</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Ranking System</h2>
+                <div class="rank-tiers">
+                    <div class="rank-card">
+                        <div class="rank-icon">🥉</div>
+                        <h3>Bronze</h3>
+                        <p>0 - 1000 ELO</p>
+                        <ul class="rule-list">
+                            <li>Basic kit access</li>
+                            <li>Daily rewards</li>
+                        </ul>
+                    </div>
+                    <div class="rank-card">
+                        <div class="rank-icon">🥈</div>
+                        <h3>Silver</h3>
+                        <p>1001 - 2000 ELO</p>
+                        <ul class="rule-list">
+                            <li>Premium kit access</li>
+                            <li>Weekly rewards</li>
+                        </ul>
+                    </div>
+                    <div class="rank-card">
+                        <div class="rank-icon">🥇</div>
+                        <h3>Gold</h3>
+                        <p>2001 - 3000 ELO</p>
+                        <ul class="rule-list">
+                            <li>All kits unlocked</li>
+                            <li>Special cosmetics</li>
+                        </ul>
+                    </div>
+                    <div class="rank-card">
+                        <div class="rank-icon">👑</div>
+                        <h3>Champion</h3>
+                        <p>3001+ ELO</p>
+                        <ul class="rule-list">
+                            <li>Exclusive rewards</li>
+                            <li>Tournament access</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Essential Commands</h2>
+                <div class="command-card">
+                    <div class="command-list">
+                        <code>/pvp join [arena]</code>
+                        <code>/kit [kit-name]</code>
+                        <code>/stats [player]</code>
+                        <code>/duel [player]</code>
+                        <code>/leaderboard</code>
+                        <code>/spectate [player]</code>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Rules & Guidelines</h2>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <h4>Combat Rules</h4>
+                        <div class="accordion-content">
+                            <ul class="rule-list">
+                                <li>No combat logging (logging out during fights)</li>
+                                <li>No teaming in FFA areas</li>
+                                <li>No using glitches or exploits</li>
+                                <li>Respect arena boundaries</li>
+                                <li>Report hackers to staff immediately</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h4>Kit Rules</h4>
+                        <div class="accordion-content">
+                            <ul class="rule-list">
+                                <li>Use only provided kits</li>
+                                <li>No modifying kit items</li>
+                                <li>Report any kit-related bugs</li>
+                                <li>No sharing kit items</li>
+                                <li>Reset kit after each match</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h4>Tournament Rules</h4>
+                        <div class="accordion-content">
+                            <ul class="rule-list">
+                                <li>Be on time for matches</li>
+                                <li>Follow staff instructions</li>
+                                <li>No unsportsmanlike conduct</li>
+                                <li>Matches are final</li>
+                                <li>Prize distribution is non-negotiable</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Mobile Navigation Toggle -->
+        <button class="mobile-nav-toggle">☰</button>
+
+        <script src="../js/main.js"></script>
+        <script>
+            // Accordion functionality
+            document.querySelectorAll('.accordion-item h4').forEach(header => {
+                header.addEventListener('click', () => {
+                    const accordionItem = header.parentElement;
+                    const isActive = accordionItem.classList.contains('active');
+                    
+                    // Close all accordion items
+                    document.querySelectorAll('.accordion-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // If the clicked item wasn't active, open it
+                    if (!isActive) {
+                        accordionItem.classList.add('active');
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>
+</html> 
