@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- SEO Meta Tags -->
     <title>Server Rules and Guidelines - Fusion Network Minecraft Server</title>
-    <meta name="description" content="Official rules and guidelines for Fusion Network Minecraft server. Learn about allowed behavior, prohibited actions, and how to maintain a positive gaming environment.">
-    <meta name="keywords" content="Minecraft server rules, Fusion Network guidelines, Minecraft community rules, server policies, fair play rules">
-    
+    <meta name="description"
+        content="Official rules and guidelines for Fusion Network Minecraft server. Learn about allowed behavior, prohibited actions, and how to maintain a positive gaming environment.">
+    <meta name="keywords"
+        content="Minecraft server rules, Fusion Network guidelines, Minecraft community rules, server policies, fair play rules">
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Server Rules - Fusion Network Minecraft Server">
-    <meta property="og:description" content="Official rules and guidelines for Fusion Network. Learn what's allowed and prohibited to ensure fair play for everyone.">
+    <meta property="og:description"
+        content="Official rules and guidelines for Fusion Network. Learn what's allowed and prohibited to ensure fair play for everyone.">
     <meta property="og:image" content="../assets/fusion-banner.png">
     <meta property="og:url" content="https://docs.fusion-network.xyz/rules.html">
     <meta property="og:type" content="article">
-    
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Server Rules - Fusion Network Minecraft Server">
-    <meta name="twitter:description" content="Official rules and guidelines for Fusion Network. Ensure fair play and positive gaming environment.">
+    <meta name="twitter:description"
+        content="Official rules and guidelines for Fusion Network. Ensure fair play and positive gaming environment.">
     <meta name="twitter:image" content="../assets/fusion-banner.png">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://docs.fusion-network.xyz/rules.html">
-    
+
     <!-- Additional Meta Tags -->
     <meta name="robots" content="index, follow">
     <meta name="author" content="Fusion Network">
@@ -71,28 +76,35 @@
     <link rel="stylesheet" href="../css/enhanced.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
     <style>
         body {
             background: #23263a;
             color: #f3f4f6;
         }
+
         .main-content {
             background: #23263a;
             min-height: 100vh;
         }
+
         .hero-section {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
             color: #fff !important;
         }
+
         .hero-title {
             background: none !important;
             -webkit-text-fill-color: #fff !important;
             color: #fff !important;
         }
+
         .hero-description {
             color: #e0e7ef !important;
         }
+
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -100,6 +112,7 @@
             margin-top: 1.5rem;
             animation: fadeInUp 1s ease-out;
         }
+
         .hero-stat {
             background: rgba(54, 57, 89, 0.98) !important;
             color: #f8fafc !important;
@@ -107,114 +120,164 @@
             text-align: center;
             padding: 1.25rem;
             margin-bottom: 1rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
         }
+
         .hero-stat-number {
             color: #a5b4fc !important;
         }
+
         .hero-stat-label {
             color: #e0e7ef !important;
         }
+
         .rules-section {
             background: rgba(36, 39, 61, 0.97) !important;
             border-radius: 1rem;
             padding: 2rem;
             margin: 2rem 0;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
         }
+
         .rules-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
+
         .rule-card {
             background: rgba(54, 57, 89, 0.98) !important;
             color: #f8fafc !important;
             border: 1px solid #353869;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
             border-radius: 1rem;
             padding: 2rem;
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
         }
+
         .rule-title {
             color: #fff !important;
         }
+
         .rule-subtitle {
             color: #a5b4fc !important;
         }
-        .rule-list, .rule-item, .rule-item-text {
+
+        .rule-list,
+        .rule-item,
+        .rule-item-text {
             background: none !important;
             box-shadow: none !important;
         }
+
         .rule-item {
             color: #e0e7ef !important;
             border-bottom: 1px solid #353869 !important;
         }
+
         .rule-item-text {
             color: #e0e7ef !important;
         }
+
         .rule-item-icon {
             color: #a5b4fc !important;
         }
+
         .punishment-section {
             background: rgba(36, 39, 61, 0.97) !important;
             border-radius: 1rem;
             padding: 2rem;
             margin-top: 2rem;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
         }
+
         .punishment-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
+
         .punishment-card {
             background: rgba(54, 57, 89, 0.98) !important;
             color: #f8fafc !important;
             border: 1px solid #353869;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
             border-radius: 0.75rem;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
         }
+
         .punishment-title {
             color: #fff !important;
         }
+
         .punishment-item {
             color: #e0e7ef !important;
         }
-        ul, li, p, span, label, small, strong, b {
+
+        ul,
+        li,
+        p,
+        span,
+        label,
+        small,
+        strong,
+        b {
             color: #e0e7ef !important;
         }
-        a, .card-link {
+
+        a,
+        .card-link {
             color: #8b5cf6 !important;
         }
-        .sidebar, .sidebar-nav, .sidebar-logo {
+
+        .sidebar,
+        .sidebar-nav,
+        .sidebar-logo {
             background: #1a1c2c;
         }
-        .nav-link, .nav-section-title, .nav-item, .sidebar-logo, .sidebar-nav {
+
+        .nav-link,
+        .nav-section-title,
+        .nav-item,
+        .sidebar-logo,
+        .sidebar-nav {
             color: #e0e7ef !important;
         }
+
         @media (max-width: 900px) {
-            .rules-grid, .punishment-grid, .hero-stats {
+
+            .rules-grid,
+            .punishment-grid,
+            .hero-stats {
                 grid-template-columns: 1fr 1fr;
                 gap: 1.2rem;
             }
-            .rule-card, .punishment-card, .hero-stat {
+
+            .rule-card,
+            .punishment-card,
+            .hero-stat {
                 padding: 1.2rem;
             }
         }
+
         @media (max-width: 600px) {
-            .rules-grid, .punishment-grid, .hero-stats {
+
+            .rules-grid,
+            .punishment-grid,
+            .hero-stats {
                 grid-template-columns: 1fr;
                 gap: 1rem;
                 padding: 0 0.5rem;
             }
-            .rule-card, .punishment-card, .hero-stat {
+
+            .rule-card,
+            .punishment-card,
+            .hero-stat {
                 padding: 1rem;
                 margin: 0 auto 1rem auto;
                 min-width: 0;
@@ -222,38 +285,55 @@
                 max-width: 100%;
                 box-sizing: border-box;
             }
+
             .punishment-card {
                 margin-bottom: 1rem;
             }
+
             .hero-stat {
                 margin-bottom: 1rem;
             }
-            .rule-title, .punishment-title {
+
+            .rule-title,
+            .punishment-title {
                 font-size: 1.1rem;
             }
+
             .rule-subtitle {
                 font-size: 0.95rem;
             }
-            .rule-item-text, .punishment-item {
+
+            .rule-item-text,
+            .punishment-item {
                 font-size: 0.95rem;
             }
         }
+
         @media (max-width: 480px) {
-            .rule-card, .punishment-card, .hero-stat {
+
+            .rule-card,
+            .punishment-card,
+            .hero-stat {
                 padding: 0.7rem;
             }
-            .rule-title, .punishment-title {
+
+            .rule-title,
+            .punishment-title {
                 font-size: 1rem;
             }
+
             .rule-subtitle {
                 font-size: 0.85rem;
             }
-            .rule-item-text, .punishment-item {
+
+            .rule-item-text,
+            .punishment-item {
                 font-size: 0.9rem;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="layout-wrapper">
         <!-- Sidebar Navigation -->
@@ -340,7 +420,9 @@
             <section class="hero-section">
                 <div class="hero-content">
                     <h1 class="hero-title">Server Rules & Guidelines</h1>
-                    <p class="hero-description">Our rules are designed to create a fair, respectful, and enjoyable environment for all players. Please read and follow these guidelines to ensure a positive gaming experience.</p>
+                    <p class="hero-description">Our rules are designed to create a fair, respectful, and enjoyable
+                        environment for all players. Please read and follow these guidelines to ensure a positive gaming
+                        experience.</p>
                     <div class="hero-stats">
                         <div class="hero-stat">
                             <div class="hero-stat-number">24/7</div>
@@ -412,11 +494,15 @@
                             </li>
                             <li class="rule-item">
                                 <div class="rule-item-icon">👥</div>
-                                <div class="rule-item-text">No teaming in FFA areas</div>
+                                <div class="rule-item-text">No hacking or unfair clients</div>
                             </li>
                             <li class="rule-item">
                                 <div class="rule-item-icon">🎯</div>
                                 <div class="rule-item-text">No spawn killing</div>
+                            </li>
+                            <li class="rule-item">
+                                <div class="rule-item-icon">✨</div>
+                                <div class="rule-item-text">No inappropriate language or content</div>
                             </li>
                         </ul>
                     </div>
@@ -425,14 +511,14 @@
                         <div class="rule-header">
                             <div class="rule-icon">🏗️</div>
                             <div>
-                                <h3 class="rule-title">Building Rules</h3>
-                                <p class="rule-subtitle">Construction guidelines</p>
+                                <h3 class="rule-title">Lifesteal Rules</h3>
+                                <p class="rule-subtitle">Lifesteal guidelines</p>
                             </div>
                         </div>
                         <ul class="rule-list">
                             <li class="rule-item">
                                 <div class="rule-item-icon">🏠</div>
-                                <div class="rule-item-text">No inappropriate builds</div>
+                                <div class="rule-item-text">No spawn killing</div>
                             </li>
                             <li class="rule-item">
                                 <div class="rule-item-icon">⚡</div>
@@ -440,11 +526,11 @@
                             </li>
                             <li class="rule-item">
                                 <div class="rule-item-icon">🚫</div>
-                                <div class="rule-item-text">No griefing</div>
+                                <div class="rule-item-text">No exploits, auto-clickers, macros, or scripts</div>
                             </li>
                             <li class="rule-item">
                                 <div class="rule-item-icon">📏</div>
-                                <div class="rule-item-text">Respect build limits</div>
+                                <div class="rule-item-text">No X-ray texture packs or invisible resource packs</div>
                             </li>
                         </ul>
                     </div>
@@ -473,6 +559,10 @@
                             <li class="rule-item">
                                 <div class="rule-item-icon">🏪</div>
                                 <div class="rule-item-text">Follow shop guidelines</div>
+                            </li>
+                            <li class="rule-item">
+                                <div class="rule-item-icon">💬</div>
+                                <div class="rule-item-text">No inappropriate language or content</div>
                             </li>
                         </ul>
                     </div>
@@ -557,12 +647,12 @@
                             </div>
                         </div>
                         <ul class="punishment-list">
-                            <li class="punishment-item">Join our Discord server and go to #appeal-requests</li>
-                            <li class="punishment-item">Fill out the appeal form with your Ban ID</li>
+                            <li class="punishment-item">Join our Discord server and go to #support</li>
+                            <li class="punishment-item">Create a appeal ticket with your Ban ID</li>
                             <li class="punishment-item">Provide a detailed explanation of the situation</li>
                             <li class="punishment-item">Include any evidence supporting your case</li>
                             <li class="punishment-item">Wait 24-48 hours for staff review</li>
-                            <li class="punishment-item">Follow up in #appeal-status channel</li>
+                            <li class="punishment-item">Follow up in your ticket</li>
                         </ul>
                     </div>
 
@@ -609,5 +699,6 @@
         <button class="mobile-nav-toggle">☰</button>
 
         <script src="../js/main.js"></script>
-    </body>
-</html> 
+</body>
+
+</html>
