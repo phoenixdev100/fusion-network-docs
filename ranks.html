@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,17 +11,21 @@
     <link rel="stylesheet" href="../css/enhanced.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/fusion-logo.png">
     <style>
         body {
             background: #23263a;
             color: #f3f4f6;
         }
+
         .main-content {
             background: #23263a;
             min-height: 100vh;
         }
+
         .hero-section {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
             color: #fff !important;
@@ -30,6 +35,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .hero-section::before {
             content: '';
             position: absolute;
@@ -41,15 +47,23 @@
             opacity: 0.1;
             animation: slide 20s linear infinite;
         }
+
         @keyframes slide {
-            from { background-position: 0 0; }
-            to { background-position: -200px -200px; }
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: -200px -200px;
+            }
         }
+
         .hero-content {
             position: relative;
             z-index: 2;
             max-width: 800px;
         }
+
         .hero-title {
             font-size: 2.5rem;
             margin-bottom: 1rem;
@@ -58,6 +72,7 @@
             color: #fff !important;
             animation: fadeInUp 0.6s ease-out;
         }
+
         .hero-description {
             font-size: 1.1rem;
             color: #e0e7ef !important;
@@ -65,6 +80,7 @@
             line-height: 1.6;
             animation: fadeInUp 0.8s ease-out;
         }
+
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -72,6 +88,7 @@
             margin-top: 1.5rem;
             animation: fadeInUp 1s ease-out;
         }
+
         .hero-stat {
             background: rgba(54, 57, 89, 0.98) !important;
             padding: 1.25rem;
@@ -81,19 +98,23 @@
             transition: transform 0.3s ease;
             color: #f8fafc !important;
         }
+
         .hero-stat:hover {
             transform: translateY(-5px);
         }
+
         .hero-stat-number {
             font-size: 1.75rem;
             font-weight: 700;
             color: #a5b4fc !important;
             margin-bottom: 0.5rem;
         }
+
         .hero-stat-label {
             color: #e0e7ef !important;
             font-size: 0.9rem;
         }
+
         .store-button {
             display: inline-flex;
             align-items: center;
@@ -110,45 +131,54 @@
             opacity: 1 !important;
             box-shadow: 0 2px 8px rgba(79, 70, 229, 0.18);
         }
-        .store-button:hover, .store-button:focus {
+
+        .store-button:hover,
+        .store-button:focus {
             transform: translateY(-2px);
             box-shadow: 0 4px 16px rgba(139, 92, 246, 0.25);
             background: linear-gradient(90deg, #a78bfa 0%, #6366f1 100%) !important;
             color: #fff !important;
             outline: none;
         }
+
         .store-button svg {
             margin-right: 0.5rem;
             color: #fff !important;
         }
+
         .rank-section {
             background: rgba(36, 39, 61, 0.97) !important;
             border-radius: 1rem;
             padding: 2rem;
             margin: 2rem 0;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
         }
+
         .rank-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
+
         @media (max-width: 900px) {
             .rank-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 1.2rem;
             }
+
             .rank-card {
                 padding: 1.2rem;
             }
         }
+
         @media (max-width: 600px) {
             .rank-grid {
                 grid-template-columns: 1fr;
                 gap: 1rem;
                 padding: 0 0.5rem;
             }
+
             .rank-card {
                 padding: 1rem;
                 margin: 0 auto 1rem auto;
@@ -157,56 +187,69 @@
                 max-width: 100%;
                 box-sizing: border-box;
             }
+
             .rank-header {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
             }
+
             .rank-icon {
                 margin-right: 0;
                 margin-bottom: 0.5rem;
             }
+
             .rank-title {
                 font-size: 1.2rem;
             }
+
             .rank-subtitle {
                 font-size: 0.85rem;
             }
+
             .perk-name {
                 font-size: 0.95rem;
             }
+
             .rank-price {
                 font-size: 1rem;
             }
         }
+
         @media (max-width: 480px) {
             .rank-card {
                 padding: 0.7rem;
             }
+
             .rank-title {
                 font-size: 1rem;
             }
+
             .rank-subtitle {
                 font-size: 0.8rem;
             }
+
             .perk-name {
                 font-size: 0.9rem;
             }
+
             .rank-price {
                 font-size: 0.95rem;
             }
         }
+
         .rank-card {
             background: rgba(54, 57, 89, 0.98) !important;
             color: #f8fafc !important;
             border: 1px solid #353869;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
             border-radius: 1rem;
             padding: 2rem;
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
         }
+
         .rank-card::before {
             content: '';
             position: absolute;
@@ -215,20 +258,38 @@
             right: 0;
             height: 4px;
         }
-        .rank-card.legendary::before { background: linear-gradient(45deg, #ffd700, #ff6b6b); }
-        .rank-card.epic::before { background: linear-gradient(45deg, #9333ea, #4f46e5); }
-        .rank-card.rare::before { background: linear-gradient(45deg, #3b82f6, #06b6d4); }
-        .rank-card.uncommon::before { background: linear-gradient(45deg, #10b981, #34d399); }
-        .rank-card.common::before { background: linear-gradient(45deg, #6b7280, #9ca3af); }
+
+        .rank-card.legendary::before {
+            background: linear-gradient(45deg, #ffd700, #ff6b6b);
+        }
+
+        .rank-card.epic::before {
+            background: linear-gradient(45deg, #9333ea, #4f46e5);
+        }
+
+        .rank-card.rare::before {
+            background: linear-gradient(45deg, #3b82f6, #06b6d4);
+        }
+
+        .rank-card.uncommon::before {
+            background: linear-gradient(45deg, #10b981, #34d399);
+        }
+
+        .rank-card.common::before {
+            background: linear-gradient(45deg, #6b7280, #9ca3af);
+        }
+
         .rank-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
+
         .rank-header {
             display: flex;
             align-items: center;
             margin-bottom: 1.5rem;
         }
+
         .rank-icon {
             width: 48px;
             height: 48px;
@@ -240,32 +301,38 @@
             font-size: 1.5rem;
             margin-right: 1rem;
         }
+
         .rank-title {
             margin: 0;
             font-size: 1.5rem;
             font-weight: 600;
             color: #fff !important;
         }
+
         .rank-subtitle {
             color: #a5b4fc !important;
             font-size: 0.9rem;
             margin-top: 0.25rem;
         }
+
         .perk-list {
             list-style: none;
             padding: 0;
             margin: 1.5rem 0;
             color: #e0e7ef !important;
         }
+
         .perk-item {
             display: flex;
             align-items: center;
             padding: 0.75rem 0;
             border-bottom: 1px solid #353869 !important;
         }
+
         .perk-item:last-child {
             border-bottom: none;
         }
+
         .perk-icon {
             width: 24px;
             height: 24px;
@@ -278,10 +345,12 @@
             font-size: 1rem;
             color: #a5b4fc !important;
         }
+
         .perk-name {
             font-weight: 500;
             color: #fff !important;
         }
+
         .rank-price {
             font-size: 1.25rem;
             font-weight: 600;
@@ -289,32 +358,37 @@
             margin-top: 1rem;
             text-align: right;
         }
+
         .info-section {
             background: rgba(36, 39, 61, 0.97) !important;
             border-radius: 1rem;
             padding: 2rem;
             margin: 2rem 0;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
         }
+
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
+
         .info-card {
             background: rgba(54, 57, 89, 0.98) !important;
             color: #f8fafc !important;
             border: 1px solid #353869;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
             border-radius: 0.75rem;
             padding: 1.5rem;
             transition: all 0.3s ease;
         }
+
         .info-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
+
         .info-icon {
             width: 40px;
             height: 40px;
@@ -327,41 +401,64 @@
             margin-bottom: 1rem;
             color: #a5b4fc !important;
         }
+
         .info-title {
             font-size: 1.1rem;
             font-weight: 600;
             color: #fff !important;
             margin-bottom: 0.5rem;
         }
+
         .info-text {
             color: #e0e7ef !important;
             font-size: 0.9rem;
             line-height: 1.5;
         }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        ul, li, p, span, label, small, strong, b {
+
+        ul,
+        li,
+        p,
+        span,
+        label,
+        small,
+        strong,
+        b {
             color: #e0e7ef !important;
         }
-        a, .card-link {
+
+        a,
+        .card-link {
             color: #8b5cf6 !important;
         }
-        .sidebar, .sidebar-nav, .sidebar-logo {
+
+        .sidebar,
+        .sidebar-nav,
+        .sidebar-logo {
             background: #1a1c2c;
         }
-        .nav-link, .nav-section-title, .nav-item, .sidebar-logo, .sidebar-nav {
+
+        .nav-link,
+        .nav-section-title,
+        .nav-item,
+        .sidebar-logo,
+        .sidebar-nav {
             color: #e0e7ef !important;
         }
     </style>
 </head>
+
 <body>
     <div class="layout-wrapper">
         <!-- Sidebar Navigation -->
@@ -448,7 +545,9 @@
             <section class="hero-section">
                 <div class="hero-content">
                     <h1 class="hero-title">Server Ranks & Permissions</h1>
-                    <p class="hero-description">Unlock exclusive perks and enhance your gameplay experience with our premium ranks. Choose from a variety of ranks tailored for both PvP and Lifesteal game modes.</p>
+                    <p class="hero-description">Unlock exclusive perks and enhance your gameplay experience with our
+                        premium ranks. Choose from a variety of ranks tailored for both PvP and Lifesteal game modes.
+                    </p>
                     <div class="hero-stats">
                         <div class="hero-stat">
                             <div class="hero-stat-number">10+</div>
@@ -464,7 +563,8 @@
                         </div>
                     </div>
                     <a href="https://fusion-network.tebex.io/" class="store-button" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="9" cy="21" r="1"></circle>
                             <circle cx="20" cy="21" r="1"></circle>
                             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
@@ -481,14 +581,14 @@
                         <div class="rank-header">
                             <div class="rank-icon">👑</div>
                             <div>
-                                <h3 class="rank-title">Legendary</h3>
+                                <h3 class="rank-title">VIP</h3>
                                 <p class="rank-subtitle">Ultimate PvP Experience</p>
                             </div>
                         </div>
                         <ul class="perk-list">
                             <li class="perk-item">
                                 <div class="perk-icon">⚔️</div>
-                                <div class="perk-name">All Kit Access</div>
+                                <div class="perk-name">Fusion Swords Special Kit Access</div>
                             </li>
                             <li class="perk-item">
                                 <div class="perk-icon">✨</div>
@@ -496,28 +596,28 @@
                             </li>
                             <li class="perk-item">
                                 <div class="perk-icon">🎯</div>
-                                <div class="perk-name">Priority Queue</div>
+                                <div class="perk-name"> Fly perk in Lobby ( /fly )</div>
                             </li>
                             <li class="perk-item">
                                 <div class="perk-icon">💎</div>
-                                <div class="perk-name">Exclusive Cosmetics</div>
+                                <div class="perk-name">+ more perks</div>
                             </li>
                         </ul>
-                        <div class="rank-price">$49.99</div>
+                        <div class="rank-price">$4.00</div>
                     </div>
 
                     <div class="rank-card epic">
                         <div class="rank-header">
                             <div class="rank-icon">⚡</div>
                             <div>
-                                <h3 class="rank-title">Epic</h3>
+                                <h3 class="rank-title">VIP+</h3>
                                 <p class="rank-subtitle">Enhanced Combat Power</p>
                             </div>
                         </div>
                         <ul class="perk-list">
                             <li class="perk-item">
                                 <div class="perk-icon">⚔️</div>
-                                <div class="perk-name">Premium Kit Access</div>
+                                <div class="perk-name"> Juggernaut Manhunt Special Kit Access</div>
                             </li>
                             <li class="perk-item">
                                 <div class="perk-icon">🎨</div>
@@ -525,14 +625,14 @@
                             </li>
                             <li class="perk-item">
                                 <div class="perk-icon">🏃</div>
-                                <div class="perk-name">Fast Travel</div>
+                                <div class="perk-name">Fly perk in Lobby ( /fly )</div>
                             </li>
                             <li class="perk-item">
                                 <div class="perk-icon">🎁</div>
-                                <div class="perk-name">Daily Rewards</div>
+                                <div class="perk-name">+ more perks</div>
                             </li>
                         </ul>
-                        <div class="rank-price">$29.99</div>
+                        <div class="rank-price">$8.00</div>
                     </div>
 
                     <div class="rank-card rare">
@@ -546,18 +646,78 @@
                         <ul class="perk-list">
                             <li class="perk-item">
                                 <div class="perk-icon">⚔️</div>
-                                <div class="perk-name">Elite Kit Access</div>
+                                <div class="perk-name">Juggernaut Manhunt Special Kit Access</div>
                             </li>
                             <li class="perk-item">
                                 <div class="perk-icon">💫</div>
-                                <div class="perk-name">Basic Particles</div>
+                                <div class="perk-name">Fly perk in Lobby ( /fly )</div>
                             </li>
                             <li class="perk-item">
                                 <div class="perk-icon">📦</div>
-                                <div class="perk-name">Extra Storage</div>
+                                <div class="perk-name">Host Events using [16 hours cooldown]</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">✨</div>
+                                <div class="perk-name">+ more perks</div>
                             </li>
                         </ul>
-                        <div class="rank-price">$19.99</div>
+                        <div class="rank-price">$14.00</div>
+                    </div>
+                    <div class="rank-card rare">
+                        <div class="rank-header">
+                            <div class="rank-icon">💥</div>
+                            <div>
+                                <h3 class="rank-title">MVP</h3>
+                                <p class="rank-subtitle">Custom Features</p>
+                            </div>
+                        </div>
+                        <ul class="perk-list">
+                            <li class="perk-item">
+                                <div class="perk-icon">⚔️</div>
+                                <div class="perk-name">Fusion Swords Special Kit Access</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">💫</div>
+                                <div class="perk-name">Fly perk in Lobby ( /fly )</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">📦</div>
+                                <div class="perk-name">Host Events using [2 hours cooldown]</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">✨</div>
+                                <div class="perk-name">+ more perks</div>
+                            </li>
+                        </ul>
+                        <div class="rank-price">$25.00</div>
+                    </div>
+                    <div class="rank-card rare">
+                        <div class="rank-header">
+                            <div class="rank-icon">🪷</div>
+                            <div>
+                                <h3 class="rank-title">Fusion</h3>
+                                <p class="rank-subtitle">Exclusive Enhanced Powers</p>
+                            </div>
+                        </div>
+                        <ul class="perk-list">
+                            <li class="perk-item">
+                                <div class="perk-icon">⚔️</div>
+                                <div class="perk-name">All Cosmetics and Kill Effects</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">💫</div>
+                                <div class="perk-name">All Player Glow Effects</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">📦</div>
+                                <div class="perk-name">Host Events using [No cooldown]</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">✨</div>
+                                <div class="perk-name">+ more perks</div>
+                            </li>
+                        </ul>
+                        <div class="rank-price">$90.00</div>
                     </div>
                 </div>
             </section>
@@ -569,79 +729,171 @@
                         <div class="rank-header">
                             <div class="rank-icon">🔮</div>
                             <div>
-                                <h3 class="rank-title">Immortal</h3>
+                                <h3 class="rank-title">Soul</h3>
                                 <p class="rank-subtitle">Supreme Lifesteal Powers</p>
                             </div>
                         </div>
                         <ul class="perk-list">
                             <li class="perk-item">
                                 <div class="perk-icon">❤️</div>
-                                <div class="perk-name">Max Hearts Boost</div>
+                                <div class="perk-name">Player Vault Access</div>
                             </li>
                             <li class="perk-item">
                                 <div class="perk-icon">⚡</div>
-                                <div class="perk-name">Heart Transfer</div>
+                                <div class="perk-name">Special Discord Role</div>
                             </li>
                             <li class="perk-item">
                                 <div class="perk-icon">🛡️</div>
-                                <div class="perk-name">Heart Protection</div>
+                                <div class="perk-name">Soul Tag</div>
                             </li>
                             <li class="perk-item">
                                 <div class="perk-icon">✨</div>
-                                <div class="perk-name">Custom Effects</div>
+                                <div class="perk-name">+ more perks</div>
                             </li>
                         </ul>
-                        <div class="rank-price">$49.99</div>
+                        <div class="rank-price">$4.99</div>
                     </div>
 
                     <div class="rank-card epic">
                         <div class="rank-header">
                             <div class="rank-icon">💖</div>
                             <div>
-                                <h3 class="rank-title">Revenant</h3>
+                                <h3 class="rank-title">Knight</h3>
                                 <p class="rank-subtitle">Advanced Life Powers</p>
                             </div>
                         </div>
                         <ul class="perk-list">
                             <li class="perk-item">
                                 <div class="perk-icon">❤️</div>
-                                <div class="perk-name">Heart Bonus</div>
+                                <div class="perk-name">5th Player Queue Priority</div>
                             </li>
                             <li class="perk-item">
                                 <div class="perk-icon">🔄</div>
-                                <div class="perk-name">Heart Recovery</div>
+                                <div class="perk-name">Chat Cooldown Bypass</div>
                             </li>
                             <li class="perk-item">
                                 <div class="perk-icon">🎁</div>
-                                <div class="perk-name">Daily Hearts</div>
+                                <div class="perk-name">PlayerGlow Access</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">✨</div>
+                                <div class="perk-name">+ more perks</div>
                             </li>
                         </ul>
-                        <div class="rank-price">$29.99</div>
+                        <div class="rank-price">$8.99</div>
                     </div>
 
                     <div class="rank-card rare">
                         <div class="rank-header">
                             <div class="rank-icon">💝</div>
                             <div>
-                                <h3 class="rank-title">Heartseeker</h3>
+                                <h3 class="rank-title">Sentinel</h3>
                                 <p class="rank-subtitle">Enhanced Life Features</p>
                             </div>
                         </div>
                         <ul class="perk-list">
                             <li class="perk-item">
                                 <div class="perk-icon">❤️</div>
-                                <div class="perk-name">Extra Hearts</div>
+                                <div class="perk-name">4 Playervaults Access</div>
                             </li>
                             <li class="perk-item">
                                 <div class="perk-icon">🔋</div>
-                                <div class="perk-name">Heart Storage</div>
+                                <div class="perk-name">4th Queue Priority</div>
                             </li>
                             <li class="perk-item">
                                 <div class="perk-icon">📦</div>
-                                <div class="perk-name">Basic Perks</div>
+                                <div class="perk-name">No AFK Kick</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">✨</div>
+                                <div class="perk-name">+ more perks</div>
                             </li>
                         </ul>
-                        <div class="rank-price">$19.99</div>
+                        <div class="rank-price">$11.99</div>
+                    </div>
+                    <div class="rank-card rare">
+                        <div class="rank-header">
+                            <div class="rank-icon">💕</div>
+                            <div>
+                                <h3 class="rank-title">Master</h3>
+                                <p class="rank-subtitle">Ultimate Lifesteal Experience</p>
+                            </div>
+                        </div>
+                        <ul class="perk-list">
+                            <li class="perk-item">
+                                <div class="perk-icon">⚔️</div>
+                                <div class="perk-name">In-game Master Kit</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">💫</div>
+                                <div class="perk-name"> 6 Auction House Listings</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">📦</div>
+                                <div class="perk-name">Eglow Blink Effects</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">✨</div>
+                                <div class="perk-name">+ more perks</div>
+                            </li>
+                        </ul>
+                        <div class="rank-price">$16.99</div>
+                    </div>
+                    <div class="rank-card rare">
+                        <div class="rank-header">
+                            <div class="rank-icon">⚔️</div>
+                            <div>
+                                <h3 class="rank-title">Mercenary</h3>
+                                <p class="rank-subtitle">Ultimate Lifesteal Experience</p>
+                            </div>
+                        </div>
+                        <ul class="perk-list">
+                            <li class="perk-item">
+                                <div class="perk-icon">⚔️</div>
+                                <div class="perk-name">All Cosmetics and Kill Effects</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">💫</div>
+                                <div class="perk-name">All Player Glow Effects</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">📦</div>
+                                <div class="perk-name">Host Events using [No cooldown]</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">✨</div>
+                                <div class="perk-name">+ more perks</div>
+                            </li>
+                        </ul>
+                        <div class="rank-price">$24.99</div>
+                    </div>
+                    <div class="rank-card rare">
+                        <div class="rank-header">
+                            <div class="rank-icon">🪷</div>
+                            <div>
+                                <h3 class="rank-title">Fusion</h3>
+                                <p class="rank-subtitle">Exclusive Enhanced Powers</p>
+                            </div>
+                        </div>
+                        <ul class="perk-list">
+                            <li class="perk-item">
+                                <div class="perk-icon">⚔️</div>
+                                <div class="perk-name">All Cosmetics and Kill Effects</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">💫</div>
+                                <div class="perk-name">All Player Glow Effects</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">📦</div>
+                                <div class="perk-name">Host Events using [No cooldown]</div>
+                            </li>
+                            <li class="perk-item">
+                                <div class="perk-icon">✨</div>
+                                <div class="perk-name">+ more perks</div>
+                            </li>
+                        </ul>
+                        <div class="rank-price">$90.00</div>
                     </div>
                 </div>
             </section>
@@ -652,12 +904,14 @@
                     <div class="info-card">
                         <div class="info-icon">🔄</div>
                         <h3 class="info-title">Rank Upgrades</h3>
-                        <p class="info-text">Already have a rank? You can upgrade to a higher tier at any time and only pay the difference!</p>
+                        <p class="info-text">Already have a rank? You can upgrade to a higher tier at any time and only
+                            pay the difference!</p>
                     </div>
                     <div class="info-card">
                         <div class="info-icon">💰</div>
                         <h3 class="info-title">Payment Methods</h3>
-                        <p class="info-text">We accept various payment methods including PayPal, credit cards, and other secure options.</p>
+                        <p class="info-text">We accept various payment methods including PayPal, credit cards, and other
+                            secure options.</p>
                     </div>
                     <div class="info-card">
                         <div class="info-icon">🎮</div>
@@ -673,17 +927,20 @@
                     <div class="info-card">
                         <div class="info-icon">❓</div>
                         <h3 class="info-title">How to Purchase</h3>
-                        <p class="info-text">Visit our store, select your desired rank, and follow the checkout process. Your rank will be activated instantly after purchase.</p>
+                        <p class="info-text">Visit our store, select your desired rank, and follow the checkout process.
+                            Your rank will be activated instantly after purchase.</p>
                     </div>
                     <div class="info-card">
                         <div class="info-icon">⏰</div>
                         <h3 class="info-title">Duration</h3>
-                        <p class="info-text">All ranks are permanent and will not expire. Your benefits will remain active as long as you play on our server.</p>
+                        <p class="info-text">All ranks are permanent and will not expire. Your benefits will remain
+                            active as long as you play on our server.</p>
                     </div>
                     <div class="info-card">
                         <div class="info-icon">🔧</div>
                         <h3 class="info-title">Support</h3>
-                        <p class="info-text">Need help with your rank? Our support team is available 24/7 to assist you with any issues.</p>
+                        <p class="info-text">Need help with your rank? Our support team is available 24/7 to assist you
+                            with any issues.</p>
                     </div>
                 </div>
             </section>
@@ -695,4 +952,5 @@
 
     <script src="../js/main.js"></script>
 </body>
-</html> 
+
+</html>
